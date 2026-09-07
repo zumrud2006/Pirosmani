@@ -3,89 +3,921 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pirosmani — грузинская кухня</title>
+<title>Пиросмани — грузинский ресторан в Махачкале</title>
+<meta name="description" content="Грузинский ресторан «Пиросмани» в Махачкале, ул. Пушкина, 3. Гость — от Бога. Бронирование столов: +7 (963) 411-32-32. Ежедневно 12:00–23:00.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2317110d'/%3E%3Ctext x='32' y='45' font-family='Georgia' font-size='38' fill='%23c69a4d' text-anchor='middle'%3EП%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17110d;          /* тёмный шоколад */
+  --bg2:#201713;         /* панели */
+  --bg3:#2a1d16;
+  --wine:#5e1c26;        /* глубокий бордовый */
+  --wine-d:#421219;
+  --cream:#f3e7d8;       /* кремовый */
+  --taupe:#a68f7a;       /* приглушённый тауп */
+  --gold:#c69a4d;        /* приглушённое золото */
+  --gold-d:#9a7434;
+  --line:rgba(198,154,77,.22);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Manrope',-apple-system,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans);cursor:pointer}
+::selection{background:var(--wine);color:var(--cream)}
+
+/* ---------- типографика ---------- */
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.h2{font-size:clamp(34px,5vw,58px);margin:14px 0 0}
+.lead{color:var(--taupe);font-size:clamp(15px,1.6vw,18px);max-width:56ch}
+
+/* ---------- каркас ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+section{padding:110px 0}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- навигация ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(23,17,13,.92);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:var(--serif);font-size:21px;letter-spacing:.14em;color:var(--cream)}
+.logo em{font-style:normal;color:var(--gold)}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);font-weight:500;transition:color .3s}
+.nav-links a:hover{color:var(--cream)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--gold);background:transparent;color:var(--cream);
+  padding:15px 30px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;transition:background .35s,color .35s,border-color .35s}
+.btn:hover{background:var(--gold);color:#241a10}
+.btn-solid{background:var(--gold);color:#241a10}
+.btn-solid:hover{background:var(--cream);border-color:var(--cream)}
+.btn-wine{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+.btn-wine:hover{background:var(--wine-d);border-color:var(--gold)}
+.nav .btn{padding:11px 22px}
+.burger{display:none;background:none;border:0;width:44px;height:44px;position:relative;z-index:70}
+.burger span{position:absolute;left:10px;right:10px;height:1.5px;background:var(--cream);transition:.35s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:28px}
+.burger.open span:nth-child(1){top:22px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){top:22px;transform:rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:65;background:rgba(23,17,13,.98);display:flex;flex-direction:column;justify-content:center;padding:0 32px;gap:6px;
+  clip-path:inset(0 0 100% 0);transition:clip-path .55s cubic-bezier(.77,0,.18,1)}
+.mobile-menu.open{clip-path:inset(0)}
+.mobile-menu a{font-family:var(--serif);font-size:clamp(30px,8vw,42px);padding:10px 0;border-bottom:1px solid var(--line);color:var(--cream)}
+.mobile-menu a small{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--gold);display:block;margin-bottom:-6px}
+.mobile-menu .btn{margin-top:26px}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:120px 24px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/hero.jpg') center/cover no-repeat;transform:scale(1.06);animation:heroIn 2.4s cubic-bezier(.22,.61,.36,1) forwards}
+@keyframes heroIn{to{transform:scale(1)}}
+.hero-bg::after{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse at 50% 42%,rgba(23,17,13,.18) 0%,rgba(23,17,13,.66) 62%,rgba(23,17,13,.96) 100%),
+  linear-gradient(180deg,rgba(23,17,13,.55) 0%,rgba(66,18,25,.28) 45%,var(--bg) 100%)}
+.hero-in{position:relative;z-index:2;max-width:900px}
+.hero .eyebrow{color:var(--cream);opacity:.85}
+.hero h1{font-size:clamp(40px,8.4vw,104px);letter-spacing:.06em;margin:22px 0 6px;font-weight:600;white-space:nowrap}
+.hero h1 .w{display:inline-block;opacity:0;transform:translateY(.5em) rotate(2deg);animation:wIn .9s cubic-bezier(.19,1,.22,1) forwards}
+@keyframes wIn{to{opacity:1;transform:none}}
+.hero .motto{font-family:var(--serif);font-style:italic;font-size:clamp(19px,3vw,28px);color:var(--gold);letter-spacing:.04em}
+.hero .sub{color:rgba(243,231,216,.72);font-size:14px;letter-spacing:.24em;text-transform:uppercase;margin-top:16px}
+.hero-cta{display:flex;gap:16px;justify-content:center;margin-top:44px;flex-wrap:wrap}
+.hero-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:var(--taupe);font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero-hint::after{content:'';width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- бегущая строка ---------- */
+.ticker{background:var(--cream);color:#2a1d16;overflow:hidden;padding:13px 0;border-block:1px solid var(--gold-d)}
+.ticker-track{display:flex;width:max-content;animation:tick 46s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker span{font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;white-space:nowrap;padding:0 26px}
+.ticker i{color:var(--wine);font-style:normal}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- меню ---------- */
+#menu{background:linear-gradient(180deg,var(--bg) 0%,#1d1410 100%)}
+.menu-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:26px;margin-bottom:38px}
+.menu-tools{position:sticky;top:76px;z-index:40;background:rgba(23,17,13,.94);backdrop-filter:blur(12px);padding:16px 0 14px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.menu-search{display:flex;align-items:center;gap:12px;border:1px solid var(--line);padding:12px 18px;background:var(--bg2);max-width:420px}
+.menu-search svg{flex:none;stroke:var(--gold)}
+.menu-search input{flex:1;background:none;border:0;outline:0;color:var(--cream);font-family:var(--sans);font-size:15px}
+.menu-search input::placeholder{color:var(--taupe)}
+.menu-cats{display:flex;gap:8px;overflow-x:auto;padding:14px 2px 2px;scrollbar-width:none}
+.menu-cats::-webkit-scrollbar{display:none}
+.cat{flex:none;border:1px solid var(--line);background:transparent;color:var(--taupe);padding:9px 18px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:.3s;border-radius:100px}
+.cat:hover{color:var(--cream);border-color:var(--gold)}
+.cat.on{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+.menu-count{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);margin:26px 0 0}
+.dish-cat{font-family:var(--serif);font-size:clamp(24px,3.4vw,34px);color:var(--gold);margin:58px 0 8px;display:flex;align-items:baseline;gap:18px}
+.dish-cat::after{content:'';flex:1;height:1px;background:var(--line)}
+.dish-cat small{font-family:var(--sans);font-size:11.5px;letter-spacing:.2em;color:var(--taupe);text-transform:uppercase}
+.dish{display:grid;grid-template-columns:1fr auto;gap:4px 26px;padding:20px 4px;border-bottom:1px solid rgba(198,154,77,.12);transition:background .3s}
+.dish:hover{background:rgba(198,154,77,.05)}
+.dish-name{font-family:var(--serif);font-size:19px;font-weight:500;letter-spacing:.02em}
+.dish-name .w{font-family:var(--sans);font-size:12px;color:var(--taupe);font-weight:400;letter-spacing:.06em;margin-left:10px}
+.dish-price{font-family:var(--serif);font-size:20px;color:var(--gold);white-space:nowrap}
+.dish-price i{font-style:normal;font-size:13px;color:var(--taupe);font-family:var(--sans)}
+.dish-desc{grid-column:1/-1;color:var(--taupe);font-size:14px;max-width:72ch;font-weight:300}
+.menu-empty{display:none;padding:70px 0;text-align:center;color:var(--taupe)}
+.menu-empty b{display:block;font-family:var(--serif);font-size:26px;color:var(--cream);margin-bottom:10px;font-weight:500}
+.menu-note{margin-top:44px;font-size:12.5px;color:var(--taupe);letter-spacing:.04em}
+mark{background:var(--wine);color:var(--cream);padding:0 2px}
+
+/* ---------- атмосфера ---------- */
+.atmo-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:56px}
+.atmo-grid figure{overflow:hidden;position:relative;background:var(--bg2)}
+.atmo-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.22,.61,.36,1),filter 1.4s}
+.atmo-grid figure:hover img{transform:scale(1.045)}
+.a1{grid-column:1/8;aspect-ratio:16/10}
+.a2{grid-column:8/13;aspect-ratio:4/4.36}
+.a3{grid-column:1/6;aspect-ratio:4/3.4}
+.a4{grid-column:6/13;aspect-ratio:16/8.6}
+.a5{grid-column:1/7;aspect-ratio:16/10}
+.a6{grid-column:7/13;aspect-ratio:16/10.9}
+.atmo-quote{font-family:var(--serif);font-style:italic;font-size:clamp(26px,4.4vw,44px);text-align:center;color:var(--cream);max-width:22ch;margin:90px auto 0;line-height:1.3}
+.atmo-quote b{color:var(--gold);font-weight:500}
+
+/* ---------- вечера ---------- */
+#evenings{background:var(--bg2)}
+.event{display:grid;grid-template-columns:110px 1fr auto;gap:30px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line)}
+.event:first-of-type{border-top:1px solid var(--line)}
+.event-date{text-align:center;border:1px solid var(--line);padding:16px 8px}
+.event-date b{display:block;font-family:var(--serif);font-size:34px;color:var(--gold);line-height:1}
+.event-date span{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe)}
+.event h3{font-size:24px;margin-bottom:6px}
+.event p{color:var(--taupe);font-size:14.5px;max-width:60ch}
+.event-empty{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;border:1px dashed var(--line);padding:40px;margin-top:40px}
+.event-empty p{color:var(--taupe);max-width:52ch}
+.event-empty b{font-family:var(--serif);font-size:22px;color:var(--cream);display:block;margin-bottom:6px;font-weight:500}
+
+/* ---------- о ресторане ---------- */
+.about-grid{display:grid;grid-template-columns:5fr 1fr 4fr;gap:34px;margin-top:60px;align-items:start}
+.about-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);writing-mode:vertical-rl;justify-self:center}
+.about-facts{display:grid;gap:0;border-top:1px solid var(--line)}
+.about-facts div{padding:20px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+.about-facts dt{color:var(--taupe);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.about-facts dd{font-family:var(--serif);font-size:17px;text-align:right}
+.about-img{margin-top:56px;aspect-ratio:21/9;overflow:hidden}
+.about-img img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- контакты ---------- */
+#contacts{background:linear-gradient(180deg,#1d1410,var(--wine-d) 160%)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;align-items:start}
+.c-row{padding:22px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:150px 1fr;gap:20px}
+.c-row dt{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe);padding-top:5px}
+.c-row dd{font-family:var(--serif);font-size:clamp(18px,2.2vw,23px)}
+.c-row dd small{display:block;font-family:var(--sans);font-size:13px;color:var(--taupe);margin-top:4px}
+.c-row a:hover{color:var(--gold)}
+.contact-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.map{margin-top:60px;border:1px solid var(--line);height:420px;position:relative;background:var(--bg3)}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.5) sepia(.22) brightness(.86)}
+
+/* ---------- футер ---------- */
+footer{background:var(--wine-d);padding:70px 0 34px;overflow:hidden}
+.foot-mark{font-family:var(--serif);font-size:clamp(60px,12vw,150px);letter-spacing:.08em;color:transparent;-webkit-text-stroke:1px rgba(198,154,77,.4);white-space:nowrap;line-height:1;margin-bottom:50px;animation:tick 65s linear infinite;width:max-content}
+.foot-grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:30px;font-size:13px;color:var(--taupe)}
+.foot-grid a{color:var(--cream)}
+.foot-grid a:hover{color:var(--gold)}
+
+/* ---------- бронирование ---------- */
+.drawer-veil{position:fixed;inset:0;background:rgba(12,8,6,.66);backdrop-filter:blur(3px);z-index:80;opacity:0;pointer-events:none;transition:opacity .45s}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:var(--bg2);z-index:90;transform:translateX(102%);transition:transform .55s cubic-bezier(.77,0,.18,1);display:flex;flex-direction:column;border-left:1px solid var(--line)}
+body.booking-open .drawer{transform:none}
+body.booking-open .drawer-veil{opacity:1;pointer-events:auto}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:26px 32px;border-bottom:1px solid var(--line)}
+.drawer-head b{font-family:var(--serif);font-size:24px;font-weight:500}
+.drawer-close{background:none;border:1px solid var(--line);width:42px;height:42px;color:var(--cream);font-size:18px;transition:.3s}
+.drawer-close:hover{background:var(--wine)}
+.drawer-body{padding:30px 32px;overflow-y:auto;flex:1}
+.drawer-body>p{color:var(--taupe);font-size:13.5px;margin-bottom:24px}
+.f-field{margin-bottom:18px}
+.f-field label{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
+.f-field input,.f-field select{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--cream);padding:14px 16px;font-size:15px;font-family:var(--sans);outline:0;transition:border-color .3s;color-scheme:dark}
+.f-field input:focus,.f-field select:focus{border-color:var(--gold)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.drawer .btn{width:100%;padding:17px}
+.drawer-alt{margin-top:20px;text-align:center;font-size:13px;color:var(--taupe)}
+.drawer-alt a{color:var(--gold)}
+.booking-done{display:none;text-align:center;padding:50px 10px}
+.booking-done b{font-family:var(--serif);font-size:26px;display:block;margin-bottom:14px;color:var(--gold);font-weight:500}
+.booking-done p{color:var(--taupe);font-size:14.5px}
+.sticky-book{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:55}
+
+/* ---------- корзина ---------- */
+.cart-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--cream);flex:none;transition:border-color .3s}
+.cart-btn:hover{border-color:var(--gold)}
+.cart-btn svg{stroke:var(--cream)}
+.cart-badge{position:absolute;top:-7px;right:-7px;background:var(--gold);color:#241a10;font-size:10.5px;font-weight:700;min-width:18px;height:18px;border-radius:100px;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.cart-badge[hidden]{display:none}
+.dish-add{grid-column:1/-1;margin-top:8px}
+.add-btn{border:1px solid var(--line);background:transparent;color:var(--cream);padding:8px 16px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:.3s}
+.add-btn:hover{border-color:var(--gold);color:var(--gold)}
+.qty-stepper{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--gold)}
+.qty-stepper button{background:transparent;border:0;color:var(--cream);width:32px;height:32px;font-size:16px;line-height:1}
+.qty-stepper button:hover{background:var(--wine)}
+.qty-stepper span{min-width:24px;text-align:center;font-family:var(--serif);font-size:14px}
+.cart-line{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.cart-line-name{font-family:var(--serif);font-size:16px}
+.cart-line-meta{color:var(--taupe);font-size:12px;margin-top:3px}
+.cart-line-remove{background:none;border:0;color:var(--taupe);font-size:11.5px;text-decoration:underline;padding:0;margin-top:8px;cursor:pointer}
+.cart-line-remove:hover{color:var(--gold)}
+.cart-line-right{margin-left:auto;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.cart-line-price{font-family:var(--serif);color:var(--gold);font-size:15px}
+.cart-empty{color:var(--taupe);text-align:center;padding:60px 10px;font-size:14.5px}
+.cart-total{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--serif);font-size:22px;padding:16px 0 22px;border-top:1px solid var(--line);margin-top:6px}
+.cart-total b{color:var(--gold)}
+body.cart-open .cart-drawer{transform:none}
+body.cart-open .cart-veil{opacity:1;pointer-events:auto}
+.sticky-cart{display:none;position:fixed;left:14px;right:14px;bottom:78px;z-index:55}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--wine);color:var(--cream);padding:12px 22px;font-size:13px;letter-spacing:.04em;z-index:120;opacity:0;pointer-events:none;transition:.3s;border:1px solid var(--gold);white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- адаптив ---------- */
+@media(max-width:1000px){
+  .about-grid{grid-template-columns:1fr;gap:26px}
+  .about-label{writing-mode:horizontal-tb;justify-self:start}
+  .contact-grid{grid-template-columns:1fr;gap:20px}
+  .a1,.a2,.a3,.a4,.a5,.a6{grid-column:1/-1;aspect-ratio:16/10}
+}
+@media(max-width:820px){
+  .nav-links{display:none}
+  .burger{display:block}
+  section{padding:80px 0}
+  .event{grid-template-columns:80px 1fr;gap:20px}
+  .event .btn{grid-column:1/-1}
+  .event-date b{font-size:26px}
+  .sticky-book{display:block}
+  .menu-tools{top:70px}
+  .c-row{grid-template-columns:1fr;gap:4px}
+  .sticky-cart{display:block}
+}
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#top" class="logo">
-      <span class="logo-mark">✦</span>
-      <span class="logo-text">PIROSMANI</span>
-    </a>
-    <p class="tagline">Грузинская кухня</p>
-    <button class="cart-toggle" id="cartToggle" aria-label="Открыть корзину">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
-        <circle cx="9" cy="21" r="1.4"></circle>
-        <circle cx="18" cy="21" r="1.4"></circle>
-        <path d="M2.5 3h2.4l2.2 12.2a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 7H6.2"></path>
-      </svg>
-      <span class="cart-count" id="cartCount" hidden>0</span>
-    </button>
+<!-- ======================= НАВИГАЦИЯ ======================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo">ПИРОСМАНИ<em>.</em></a>
+    <nav class="nav-links">
+      <a href="#menu">Меню</a>
+      <a href="#about">О ресторане</a>
+      <a href="#atmosphere">Атмосфера</a>
+      <a href="#evenings">Вечера</a>
+      <a href="#contacts">Контакты</a>
+      <button class="cart-btn" id="cartBtn" aria-label="Корзина заказа">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="21" r="1.4"></circle><circle cx="18" cy="21" r="1.4"></circle><path d="M2.5 3h2.4l2.2 12.2a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 7H6.2"></path></svg>
+        <span class="cart-badge" id="cartBadge" hidden>0</span>
+      </button>
+      <button class="btn btn-solid" data-book>Забронировать стол</button>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
-
-  <nav class="category-nav" id="categoryNav" aria-label="Категории меню"></nav>
 </header>
 
-<main id="top">
-  <div id="menuRoot" class="menu-root"></div>
-</main>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu"><small>01</small>Меню</a>
+  <a href="#about"><small>02</small>О ресторане</a>
+  <a href="#atmosphere"><small>03</small>Атмосфера</a>
+  <a href="#evenings"><small>04</small>Вечера</a>
+  <a href="#contacts"><small>05</small>Контакты</a>
+  <button class="btn" id="cartBtnMobile">Корзина (<span id="cartBadgeMobile">0</span>)</button>
+  <button class="btn btn-solid" data-book>Забронировать стол</button>
+</div>
 
-<footer class="site-footer">
-  <p>Pirosmani · Грузинская кухня · Доставка через WhatsApp</p>
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top" style="padding-top:120px">
+  <div class="hero-bg"></div>
+  <div class="hero-in">
+    <p class="eyebrow">Грузинский ресторан в Махачкале</p>
+    <h1 id="heroTitle">ПИРОСМАНИ</h1>
+    <p class="motto">«Гость — от Бога»</p>
+    <p class="sub">ул. Пушкина, 3 · ежедневно 12:00–23:00</p>
+    <div class="hero-cta">
+      <button class="btn btn-solid" data-book>Забронировать стол</button>
+      <a class="btn" href="#menu">Открыть меню</a>
+    </div>
+  </div>
+  <div class="hero-hint">листайте</div>
+</section>
+
+<!-- ======================= БЕГУЩАЯ СТРОКА ======================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span>Гость — от Бога <i>✦</i></span><span>Махачкала, ул. Пушкина, 3 <i>✦</i></span><span>Ежедневно 12:00–23:00 <i>✦</i></span><span>Бронь: +7 (963) 411-32-32 <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ======================= МЕНЮ ======================= -->
+<section id="menu">
+  <div class="wrap">
+    <div class="menu-head reveal">
+      <div>
+        <p class="eyebrow">Кухня</p>
+        <h2 class="h2">Меню</h2>
+      </div>
+      <p class="lead">Хинкали, шашлык на мангале, хачапури из печи и блюда на компанию. Цены актуальны — ищите блюдо по названию или листайте категории.</p>
+    </div>
+    <div class="menu-tools">
+      <div class="menu-search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="menuSearch" placeholder="Найти блюдо — например, «хачапури»" aria-label="Поиск по меню">
+      </div>
+      <div class="menu-cats" id="menuCats"></div>
+    </div>
+    <p class="menu-count" id="menuCount"></p>
+    <div id="menuList"></div>
+    <div class="menu-empty" id="menuEmpty">
+      <b>Ничего не нашлось</b>
+      Попробуйте другое название — или позвоните нам: <a href="tel:+79634113232" style="color:var(--gold)">+7 (963) 411-32-32</a>, подскажем.
+    </div>
+    <p class="menu-note">Цены указаны в рублях. Вес блюд — в граммах. Хинкали — цена за 1 штуку. Администрация может менять состав и цены — уточняйте у официанта.</p>
+  </div>
+</section>
+
+<!-- ======================= АТМОСФЕРА ======================= -->
+<section id="atmosphere">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Атмосфера</p>
+      <h2 class="h2">Тёплый вечер<br>за большим столом</h2>
+    </div>
+    <div class="atmo-grid reveal">
+      <figure class="a1"><img src="img/g-shashlik-wide.jpg" alt="Шашлык на углях" loading="lazy" onerror="this.src='img/hero.jpg'"></figure>
+      <figure class="a2"><img src="img/g-cheese.jpg" alt="Сырное ассорти по-грузински" loading="lazy"></figure>
+      <figure class="a3"><img src="img/g-khinkali.jpg" alt="Хинкали" loading="lazy"></figure>
+      <figure class="a4"><img src="img/g-neknebi.jpg" alt="Некнеби в аджике" loading="lazy"></figure>
+      <figure class="a5"><img src="img/g-aragvi.jpg" alt="Арагви — баранья лопатка" loading="lazy"></figure>
+      <figure class="a6"><img src="img/g-kupaty.jpg" alt="Купаты собственного приготовления" loading="lazy"></figure>
+    </div>
+    <p class="atmo-quote reveal">«Здесь вечер становится <b>длиннее</b>»</p>
+  </div>
+</section>
+
+<!-- ======================= ВЕЧЕРА ======================= -->
+<section id="evenings">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Афиша</p>
+      <h2 class="h2">Вечера в «Пиросмани»</h2>
+    </div>
+    <div id="eventList" style="margin-top:44px"></div>
+    <div class="event-empty reveal" id="eventEmpty">
+      <p><b>Афиша обновляется</b>Музыкальные вечера и гастрономические события анонсируем в нашем Instagram — подпишитесь, чтобы не пропустить.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn" href="https://instagram.com/restaurant_pirosmani" target="_blank" rel="noopener">Instagram</a>
+        <button class="btn btn-solid" data-book>Забронировать стол</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= О РЕСТОРАНЕ ======================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">О ресторане</p>
+      <h2 class="h2">Настоящий<br>грузинский колорит</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div>
+        <p class="lead" style="max-width:52ch">«Пиросмани» — грузинский ресторан в центре Махачкалы. Готовим так, как принято в грузинском доме: хинкали лепим вручную, шашлык — на живых углях, хлеб — из печи.</p>
+        <p class="lead" style="margin-top:18px;max-width:52ch">У нас собственная коптильня и колбаски собственного приготовления. А главное правило дома знает каждый, кто к нам приходит: гость — от Бога.</p>
+      </div>
+      <div class="about-label">Пиросмани · Махачкала</div>
+      <dl class="about-facts">
+        <div><dt>Кухня</dt><dd>Грузинская</dd></div>
+        <div><dt>Мангал</dt><dd>Живые угли</dd></div>
+        <div><dt>Хлеб</dt><dd>Из печи</dd></div>
+        <div><dt>Коптильня</dt><dd>Собственная</dd></div>
+        <div><dt>Доставка</dt><dd>+7 (963) 416-67-67</dd></div>
+      </dl>
+    </div>
+    <div class="about-img reveal"><img src="img/g-fire.jpg" alt="Хачапури у огня" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ======================= КОНТАКТЫ ======================= -->
+<section id="contacts">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Контакты</p>
+      <h2 class="h2">Ждём вас<br>каждый день</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <dl>
+        <div class="c-row"><dt>Адрес</dt><dd>Махачкала, ул. Пушкина, 3</dd></div>
+        <div class="c-row"><dt>Часы работы</dt><dd>12:00–23:00<small>ежедневно</small></dd></div>
+        <div class="c-row"><dt>Бронь столов</dt><dd><a href="tel:+79634113232">+7 (963) 411-32-32</a><small>WhatsApp и звонки</small></dd></div>
+        <div class="c-row"><dt>Доставка</dt><dd><a href="tel:+79634166767">+7 (963) 416-67-67</a></dd></div>
+        <div class="c-row"><dt>Instagram</dt><dd><a href="https://instagram.com/restaurant_pirosmani" target="_blank" rel="noopener">@restaurant_pirosmani</a></dd></div>
+      </dl>
+      <div>
+        <p class="lead">Стол на вечер лучше бронировать заранее — особенно на пятницу и выходные. Позвоните или оставьте заявку, и мы перезвоним.</p>
+        <div class="contact-btns">
+          <a class="btn btn-solid" href="tel:+79634113232">Позвонить</a>
+          <a class="btn" href="https://yandex.ru/maps/?text=Махачкала, улица Пушкина, 3" target="_blank" rel="noopener">Построить маршрут</a>
+          <a class="btn" href="https://instagram.com/restaurant_pirosmani" target="_blank" rel="noopener">Instagram</a>
+          <button class="btn btn-wine" data-book>Забронировать</button>
+        </div>
+      </div>
+    </div>
+    <div class="map reveal">
+      <iframe title="Карта — Махачкала, ул. Пушкина, 3" loading="lazy"
+        src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%B0%D1%85%D0%B0%D1%87%D0%BA%D0%B0%D0%BB%D0%B0%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C%203&z=16"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ФУТЕР ======================= -->
+<footer>
+  <div class="foot-mark" aria-hidden="true">Пиросмани · Гость — от Бога · Пиросмани · Гость — от Бога ·&nbsp;</div>
+  <div class="wrap foot-grid">
+    <span>© <span id="year"></span> Ресторан «Пиросмани», Махачкала</span>
+    <span><a href="tel:+79634113232">+7 (963) 411-32-32</a> · <a href="https://instagram.com/restaurant_pirosmani" target="_blank" rel="noopener">Instagram</a></span>
+    <span>ул. Пушкина, 3 · 12:00–23:00</span>
+  </div>
 </footer>
 
-<!-- Cart drawer -->
-<div class="cart-backdrop" id="cartBackdrop"></div>
-<aside class="cart-drawer" id="cartDrawer" aria-label="Корзина">
-  <div class="cart-drawer-header">
-    <h2>Ваш заказ</h2>
-    <button class="cart-close" id="cartClose" aria-label="Закрыть корзину">&times;</button>
+<!-- ======================= БРОНИРОВАНИЕ ======================= -->
+<div class="drawer-veil" data-book-close></div>
+<aside class="drawer" role="dialog" aria-label="Бронирование стола">
+  <div class="drawer-head">
+    <b>Бронирование</b>
+    <button class="drawer-close" data-book-close aria-label="Закрыть">✕</button>
   </div>
-
-  <div class="cart-items" id="cartItems">
-    <p class="cart-empty" id="cartEmpty">Корзина пуста. Выберите блюда из меню.</p>
-  </div>
-
-  <div class="cart-summary" id="cartSummary" hidden>
-    <div class="cart-total-row">
-      <span>Итого</span>
-      <span id="cartTotal">0 ₽</span>
-    </div>
-
-    <form id="checkoutForm" class="checkout-form">
-      <label>
-        Ваше имя
-        <input type="text" name="name" placeholder="Как к вам обращаться" required>
-      </label>
-      <label>
-        Телефон
-        <input type="tel" name="phone" placeholder="+7 ___ ___-__-__" required>
-      </label>
-      <label>
-        Адрес доставки
-        <input type="text" name="address" placeholder="Улица, дом, квартира" required>
-      </label>
-      <label>
-        Комментарий к заказу
-        <textarea name="comment" rows="2" placeholder="Необязательно"></textarea>
-      </label>
-      <button type="submit" class="whatsapp-btn">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/>
-        </svg>
-        Оформить заказ в WhatsApp
-      </button>
+  <div class="drawer-body">
+    <form id="bookForm">
+      <p>Оставьте заявку — она откроется в WhatsApp администратора. Можно и просто позвонить: <a href="tel:+79634113232" style="color:var(--gold)">+7 (963) 411-32-32</a>.</p>
+      <div class="f-field"><label for="bName">Имя</label><input id="bName" required placeholder="Как к вам обращаться"></div>
+      <div class="f-row">
+        <div class="f-field"><label for="bGuests">Гостей</label>
+          <select id="bGuests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>Больше 8</option></select>
+        </div>
+        <div class="f-field"><label for="bPhone">Телефон</label><input id="bPhone" type="tel" required placeholder="+7 ___ ___-__-__"></div>
+      </div>
+      <div class="f-row">
+        <div class="f-field"><label for="bDate">Дата</label><input id="bDate" type="date" required></div>
+        <div class="f-field"><label for="bTime">Время</label><input id="bTime" type="time" min="12:00" max="23:00" value="19:00" required></div>
+      </div>
+      <button class="btn btn-solid" type="submit">Забронировать</button>
+      <p class="drawer-alt">Нажимая кнопку, вы перейдёте в WhatsApp с готовой заявкой —<br>осталось только отправить сообщение.</p>
     </form>
+    <div class="booking-done" id="bookDone">
+      <b>Заявка готова</b>
+      <p>Мы открыли WhatsApp с текстом заявки.<br>Если окно не открылось — позвоните:<br><a href="tel:+79634113232" style="color:var(--gold)">+7 (963) 411-32-32</a></p>
+    </div>
+  </div>
+</aside>
+
+<!-- ======================= КОРЗИНА ======================= -->
+<div class="drawer-veil cart-veil" id="cartVeil"></div>
+<aside class="drawer cart-drawer" role="dialog" aria-label="Корзина заказа" id="cartDrawer">
+  <div class="drawer-head">
+    <b>Ваш заказ</b>
+    <button class="drawer-close" id="cartClose" aria-label="Закрыть">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div id="cartItems"><p class="cart-empty" id="cartEmptyMsg">Корзина пуста — выберите блюда в меню.</p></div>
+    <div id="cartFooter" hidden>
+      <div class="cart-total"><span>Итого</span><b id="cartTotalVal">0 ₽</b></div>
+      <form id="orderForm">
+        <p style="color:var(--taupe);font-size:13.5px;margin-bottom:20px">Отправим заказ администратору в WhatsApp — останется только нажать «Отправить».</p>
+        <div class="f-field"><label for="oName">Имя</label><input id="oName" required placeholder="Как к вам обращаться"></div>
+        <div class="f-field"><label for="oPhone">Телефон</label><input id="oPhone" type="tel" required placeholder="+7 ___ ___-__-__"></div>
+        <div class="f-field"><label for="oAddress">Адрес доставки</label><input id="oAddress" required placeholder="Улица, дом, квартира"></div>
+        <div class="f-field"><label for="oComment">Комментарий</label><input id="oComment" placeholder="Необязательно"></div>
+        <button class="btn btn-solid" type="submit">Отправить заказ в WhatsApp</button>
+      </form>
+    </div>
   </div>
 </aside>
 
 <div class="toast" id="toast"></div>
 
-<script src="app.js"></script>
+<button class="btn btn-wine sticky-cart" id="cartBtnSticky">Корзина (<span id="cartBadgeSticky">0</span>)</button>
+<button class="btn btn-solid sticky-book" data-book>Забронировать стол</button>
+
+<script>
+/* =====================================================================
+   ДАННЫЕ МЕНЮ — редактируйте здесь.
+   c: категория · n: название · d: описание · w: вес/выход (г) · p: цена ₽
+   Хинкали: цена за 1 штуку.
+   ===================================================================== */
+const MENU = [
+  // --- Хинкали ---
+  {c:'Хинкали', n:'Хинкали по-горски с рубленой телятиной', w:'85', p:135},
+  {c:'Хинкали', n:'Хинкали с телятиной', d:'Хинкали с начинкой из телячьего фарша с луком и зеленью', w:'85', p:125},
+  {c:'Хинкали', n:'Хинкали с картофелем', d:'Хинкали с начинкой из картофельного пюре', w:'85', p:65},
+  {c:'Хинкали', n:'Хинкали с сыром', d:'Хинкали с начинкой из сыра', w:'85', p:115},
+  {c:'Хинкали', n:'Хинкали с грибами', d:'Хинкали с начинкой из жареных грибов, лука и специй', w:'85', p:85},
+
+  // --- Холодные закуски ---
+  {c:'Холодные закуски', n:'Ассорти сырное по-грузински с надуги и мятой', d:'Ассорти из 8 видов сыра с соусом на основе мёда', w:'350/150/50', p:2185},
+  {c:'Холодные закуски', n:'Ассорти солений', d:'Джонджоли, помидоры, острый перец, огурцы, черемша, красная капуста, чеснок', w:'450', p:625},
+  {c:'Холодные закуски', n:'Мясное ассорти', d:'Копченое куриное филе из собственной коптильни, рулет из мяса барашки, говяжий язык, запеченная говядина, корнишоны, соусы из дижонской горчицы и хардали', w:'400/50', p:2645},
+  {c:'Холодные закуски', n:'Ассорти из свежих овощей с сыром', w:'80/350/70', p:785},
+  {c:'Холодные закуски', n:'Ассорти пхали', d:'Из отварного шпината, свеклы, моркови с грецкими орехами, жареного болгарского перца с ореховой пастой', w:'450', p:745},
+  {c:'Холодные закуски', n:'Сациви', d:'Цыпленок зернового откорма, паста из грецких орехов, жареные кукурузные шарики с сыром, корица, гвоздика', w:'350', p:775},
+  {c:'Холодные закуски', n:'Судак киндзмари', d:'Кусочки жареного судака в маринаде киндзмари, подается слегка в теплом виде', w:'300', p:895},
+  {c:'Холодные закуски', n:'Бадриджани с грецкими орехами', d:'Рулетики из баклажанов с ореховой начинкой', w:'250', p:615},
+  {c:'Холодные закуски', n:'Язык киндзмари', d:'Кусочки отварного говяжьего языка в маринаде киндзмари', w:'200', p:965},
+  {c:'Холодные закуски', n:'Семга слабосоленная со специями', w:'200', p:1595},
+  {c:'Холодные закуски', n:'Маслины и оливки в маринаде по-грузински', w:'200', p:595},
+  {c:'Холодные закуски', n:'Чархали в соусе ткемали', d:'Отварная свекла в соусе ткемали с луком, чесноком и специями', w:'250', p:245},
+
+  // --- Салаты ---
+  {c:'Салаты', n:'Салат Эна', d:'Салат из отварного говяжьего языка, маринованных и свежих огурцов, орехов и зерен граната, заправленный майонезом и винным уксусом', w:'250', p:785},
+  {c:'Салаты', n:'Антре Батоно', d:'Говядина отварная, помидоры свежие, свежие огурцы, лук красный, листья шпината, листья салата, руккола, зелень, специи, семена подсолнуха, орегано сухой, соус «обжигательный»', w:'250', p:745},
+  {c:'Салаты', n:'Хмели лобио', d:'Фасоль, копченая куриная грудка, помидоры, пастила из ткемали, паста из грецких орехов, лук репчатый. Заправляется подсолнечным маслом', w:'250', p:415},
+  {c:'Салаты', n:'Салат К’пе', d:'Овощной салат по-домашнему с грецкими орехами и сливочным сыром', w:'250/60', p:465},
+  {c:'Салаты', n:'Салат Батуми', d:'Овощной салат с соусом мацони и куриными наггетсами', w:'250/50', p:675},
+  {c:'Салаты', n:'Чито-гврито', d:'Салат из мяса птицы с перепелиными яйцами', w:'250', p:645},
+  {c:'Салаты', n:'Джонджоли', d:'Нежное мясо теленка, джонджоли, огурцы, помидоры, зеленый и репчатый лук, сыр дагестанский. Заправляется ароматным маслом', w:'250', p:695},
+  {c:'Салаты', n:'Замтари', d:'Салат из отварной говядины, свеклы, овощей и майонезом', w:'250', p:485},
+  {c:'Салаты', n:'Салат Грузинский', d:'Салат из жареной куриной печени, салатных листьев и болгарского перца под соусом с дижонской горчицей и жареным арахисом', w:'250', p:645},
+  {c:'Салаты', n:'Салат от Гоги', d:'Салат из баклажанов со свежими помидорами, болгарским перцем, луком, чесноком, заправленный домашним майонезом и грузинскими специями, сливочный сыр и сметана', w:'300', p:565},
+  {c:'Салаты', n:'Острый салат по-мегрельски', d:'Теплый салат с медальонами из телячьей вырезки и овощами. Подается с соусом наршараб', w:'250/50', p:1245},
+
+  // --- Супы ---
+  {c:'Супы', n:'Салашкро', d:'Кусочки семги, овощи, укроп', w:'400', p:655},
+  {c:'Супы', n:'Кукурузный суп со сливками и сыром', w:'350', p:585},
+  {c:'Супы', n:'Суп хинкали', d:'Мини хинкалики, говяжий бульон, лук репчатый, сметана, зелень и грузинские специи', w:'400', p:235},
+  {c:'Супы', n:'Харчо', d:'Суп из телятины с рисом, пряными грузинскими специями и соусом ткемали', w:'400', p:585},
+  {c:'Супы', n:'Суп грибной с барбарисом', d:'Овощной суп с грибами, барбарисом и специями', w:'350', p:195},
+  {c:'Супы', n:'Татарьяхни', d:'Наваристый бульон с кусочками телятины, луком, кинзой и чесноком', w:'400', p:685},
+  {c:'Супы', n:'Чихиртма', d:'Белый густой куриный суп с уксусом, кинзой, специями и куриным яйцом', w:'350', p:195},
+
+  // --- Мучные блюда ---
+  {c:'Мучные блюда', n:'Лобиани', d:'Лепешка из полуслоеного теста с начинкой из отварной фасоли', w:'300', p:195},
+  {c:'Мучные блюда', n:'Кубдари', d:'Полуслоеное тесто, нежная куриная грудка, репчатый лук, сыр Сулугуни, кинза и грузинские специи', w:'300', p:425},
+  {c:'Мучные блюда', n:'Шоты / Серый хлеб', d:'Грузинский хлеб, испеченный в печи / хлеб из серой муки с добавлением солода, испеченный в печи', w:'120/70', p:'85/55'},
+  {c:'Мучные блюда', n:'Пхлована', d:'Лепешка из полуслоеного теста с начинкой из сыра и шпината', w:'300', p:525},
+  {c:'Мучные блюда', n:'Хачапури по-имеретински', d:'Хачапури из полуслоеного теста с сырной начинкой', w:'300', p:415},
+  {c:'Мучные блюда', n:'Хачапури по-мигрельски', d:'Хачапури из полуслоеного теста с двойной сырной начинкой', w:'300', p:425},
+  {c:'Мучные блюда', n:'Мчади', d:'Лепешка из кукурузной муки, обжаренная на масле до золотистой корочки', w:'90', p:65},
+  {c:'Мучные блюда', n:'Хачапури на мангале', d:'Хачапури из полуслоеного теста в виде люля-кебаб с начинкой из сыра, жареные на углях', w:'250', p:415},
+  {c:'Мучные блюда', n:'Хачапури по-аджарски', d:'Хачапури из полуслоеного теста в виде лодочки с сырной начинкой и куриным желтком', w:'350', p:445},
+
+  // --- Блюда на мангале ---
+  {c:'Блюда на мангале', n:'Шашлык из курицы', w:'250', p:475},
+  {c:'Блюда на мангале', n:'Шашлык из телячьей вырезки, запеченной целиком', w:'300', p:1945},
+  {c:'Блюда на мангале', n:'Шашлык из филе зутхи по-абхазски', w:'250', p:1995},
+  {c:'Блюда на мангале', n:'Шашлык из семги', w:'200', p:1845},
+  {c:'Блюда на мангале', n:'Шашлык из баранины', w:'250', p:995},
+  {c:'Блюда на мангале', n:'Горийская котлета', d:'Одно из любимых блюд товарища Сталина. Нежная котлета из перекрученной баранины, говядины и куриного филе, приготовленная на мангале. Подается с запеченным картофелем и соусом сацибели', w:'250', p:685},
+  {c:'Блюда на мангале', n:'Баклажан', w:'150', p:215},
+  {c:'Блюда на мангале', n:'Баклажан с курдюком', w:'200', p:335},
+  {c:'Блюда на мангале', n:'Грибы шампиньоны', w:'150', p:245},
+  {c:'Блюда на мангале', n:'Болгарский перец', w:'150', p:215},
+  {c:'Блюда на мангале', n:'Помидоры черри', w:'150', p:365},
+  {c:'Блюда на мангале', n:'Картофель', w:'200', p:85},
+  {c:'Блюда на мангале', n:'Шашлык из каре барашка', w:'350', p:1795},
+  {c:'Блюда на мангале', n:'Шашлык из куриных крылышек', w:'250', p:495},
+  {c:'Блюда на мангале', n:'Шашлык из телятины', w:'250', p:1645},
+  {c:'Блюда на мангале', n:'Картофель с курдюком', w:'250', p:395},
+  {c:'Блюда на мангале', n:'Люля-кебаб Кинто', d:'Люля-кебаб из телятины с курдюком, приправленный луком, кинзой и специями, в лаваше', w:'250/50', p:1195},
+  {c:'Блюда на мангале', n:'Ассорти шашлыков «Пиросмани»', w:'750/300/50', p:4495},
+
+  // --- Горячие блюда из птицы ---
+  {c:'Горячее · Птица', n:'Цыпленок по-шкмерски', d:'Жареный цыпленок в сметанно-чесночном соусе', w:'350', p:785},
+  {c:'Горячее · Птица', n:'Цыцыла с соусом Баже', d:'Цыпленок зернового откорма, жареный на углях с соусом Баже', w:'300', p:635},
+  {c:'Горячее · Птица', n:'Чахохбили', d:'Куриные бедрышки, обжаренные с помидорами, луком, куриным яйцом, специями и чесноком', w:'300', p:595},
+  {c:'Горячее · Птица', n:'Чаквавили', d:'Кусочки курицы и телятины с грибами, запеченные в горшочке со сливками и сыром', w:'500/250/90', p:2155},
+  {c:'Горячее · Птица', n:'Куриные купаты', d:'Колбаски собственного приготовления из рубленого куриного мяса с луком, чесноком, барбарисом, сыром и специями. Подается с соусом сацибели', w:'350/50', p:995},
+  {c:'Горячее · Птица', n:'Джигари кеци', d:'Куриные сердце и печень, обжаренные на сковороде со специями и луком, приправленные зернами граната, кинзой и барбарисом', w:'300', p:365},
+  {c:'Горячее · Птица', n:'Грузинская запеканка «Маргалита»', d:'Куриное филе, помидоры, сметана, картофель, баклажаны, репчатый лук, зелень и специи. Запекается под сыром Сулугуни', w:'250', p:715},
+
+  // --- Горячие блюда из телятины ---
+  {c:'Горячее · Телятина', n:'Купаты по-имерули', d:'Колбаски собственного приготовления из прокрученного мяса телятины с курдюком, приправленные луком, чесноком и специями', w:'250/50', p:1245},
+  {c:'Горячее · Телятина', n:'Чашушули в кеци', d:'Кусочки говядины, тушеные с помидорами, луком, перцем чили и специями', w:'300', p:1215},
+  {c:'Горячее · Телятина', n:'Ларису Ивановну', d:'Картофель с сыром, запеченный в печи, лук репчатый, говяжья вырезка, вяленые помидоры, сливки, лук порей, зелень, кинза, зерна граната', w:'400', p:1945},
+  {c:'Горячее · Телятина', n:'Кучмачи из говядины', d:'Кусочки говяжьего сердца, легких и печени, обжаренные с луком, тушенные в белом вине и томатном соусе, приправленные специями, зернами граната и кинзой', w:'300', p:495},
+  {c:'Горячее · Телятина', n:'Хорци в гранатовом соусе', d:'Говяжья вырезка, специи, лук, гранат, чеснок', w:'300', p:1785},
+  {c:'Горячее · Телятина', n:'Твини запеченные на глине', d:'Говяжий мозг, обжаренный с луком, куриным яйцом, чесноком, помидорами и сыром сулугуни', w:'250', p:535},
+
+  // --- Горячие блюда из баранины ---
+  {c:'Горячее · Баранина', n:'Некнеби в аджике', d:'Бараньи ребрышки, обжаренные на сковороде с луком и аджикой', w:'500', p:1845},
+  {c:'Горячее · Баранина', n:'Чашушули из баранины с грибами', d:'Баранина, тушеная с грибами и луком в кеци', w:'300', p:1245},
+  {c:'Горячее · Баранина', n:'Баранина оджахури', d:'Жаркое из баранины с картофелем, заправленное традиционными грузинскими специями и зернами граната', w:'300', p:1075},
+  {c:'Горячее · Баранина', n:'Чанахи из баранины', d:'Баранина, тушеная в горшочке с овощами', w:'400', p:1125},
+
+  // --- Горячие блюда из рыбы ---
+  {c:'Горячее · Рыба', n:'Чашушули из судака', d:'Судак жареный под горячим острым соусом чашушули', w:'300', p:1345},
+  {c:'Горячее · Рыба', n:'Калмахи в гранатовом соусе', d:'Жареная радужная форель со специями с соусом наршараб', w:'300', p:1245},
+  {c:'Горячее · Рыба', n:'Судак жареный', d:'Жаренное филе судака. Подается с соусом хардали', w:'200', p:1245},
+
+  // --- Горячие блюда из овощей ---
+  {c:'Горячее · Овощи', n:'Жареный сулугуни с мятой', d:'Сыр сулугуни, жареный в панировке с мятно-пряным соусом мацони', w:'300', p:625},
+  {c:'Горячее · Овощи', n:'Лобио в горшочке', d:'Красная фасоль, приготовленная особым способом, с луком, специями, чесноком и кукурузной лепешкой мчади', w:'250/50', p:265},
+  {c:'Горячее · Овощи', n:'Грибы с сыром на глиняной сковороде', d:'Шляпки шампиньонов с начинкой из сыра сулугуни и чеснока, запеченные в духовке', w:'250', p:525},
+  {c:'Горячее · Овощи', n:'Аджапсандали', d:'Рагу из овощей с чесноком и специями', w:'250', p:365},
+
+  // --- Горячие блюда на компанию ---
+  {c:'На компанию', n:'Гурули', d:'Телячья вырезка, куриное филе, грибы, овощи, чеснок, соус из черного перца, сыр Сулугуни, зелень, гранат', w:'900', p:2395},
+  {c:'На компанию', n:'Мясное накреби', d:'Говяжья корейка собственного приготовления, вареная в темном пиве и обжаренная в медово-горчичном маринаде, маринованные копченые бараньи ребра, абхазура, купаты по-имеретински, купаты куриные, картофель по-деревенски, капуста пикули, грузинские острые перчики, соус ткемали и соус хардали', w:'2500/700/100', p:8995},
+  {c:'На компанию', n:'Куриное накреби', d:'Копченый куриный рулет, начиненный грибами, перцем, арахисом, луком и специями, куриные копченые крылышки, куриные купаты, картофель, капуста, соус ткемали', w:'1200', p:1995},
+  {c:'На компанию', n:'Тевзис', d:'Обжаренные кусочки судака и семги с овощами, чеснок, чернослив и плавленый сыр в соусе нардари', w:'1000', p:3555},
+  {c:'На компанию', n:'Арагви', d:'Баранья лопатка, вареная в пиве с овощами и специями и запеченная в духовке с горчичной помазкой, подается с овощным салатом в соусе «Мцване»', w:'900/300', p:3645},
+  {c:'На компанию', n:'Рыбное ассорти', d:'Рулет из семги собственного приготовления, семга слабосоленая со специями, судак киндзмари, обжаренные тигровые креветки, обжаренные мидии в лимонном соусе, балык, икра, масло специального приготовления, соус «Хардали», соус «Наршараб»', w:'1100', p:5995},
+
+  // --- Гарниры ---
+  {c:'Гарниры', n:'Картофель по-деревенски', w:'200', p:155},
+  {c:'Гарниры', n:'Рис с овощами', w:'200', p:285},
+  {c:'Гарниры', n:'Картофель фри', w:'150', p:215},
+  {c:'Гарниры', n:'Рис отварной', w:'200', p:195},
+  {c:'Гарниры', n:'Картофель отварной с укропом', w:'250', p:195},
+  {c:'Гарниры', n:'Микс дикого и белого риса', w:'200', p:495},
+
+  // --- Соусы ---
+  {c:'Соусы', n:'Ткемали', w:'50', p:95},
+  {c:'Соусы', n:'Сацибели', w:'50', p:65},
+  {c:'Соусы', n:'Баже из грецких орехов', w:'100', p:125},
+  {c:'Соусы', n:'Аджика красная', w:'50', p:95},
+  {c:'Соусы', n:'Наршараб', w:'50', p:165},
+  {c:'Соусы', n:'Мацони с чесноком и мятой', w:'100', p:95},
+  {c:'Соусы', n:'Хардали с хреном', w:'50', p:65},
+];
+
+/* =====================================================================
+   ВЕЧЕРА / АФИША — редактируйте здесь.
+   Чтобы добавить событие, скопируйте блок внутри EVENTS:
+   {day:'12', month:'октября', title:'Вечер живой музыки',
+    text:'Кавер-дуэт, грузинские песни и вино. Начало в 20:00.'}
+   Если массив пуст — показывается заглушка со ссылкой на Instagram.
+   ===================================================================== */
+const EVENTS = [];
+
+/* =========================== логика =========================== */
+const $ = s => document.querySelector(s);
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* корзина: состояние объявляем рано — используется в renderMenu() ниже */
+const CART_KEY = 'pirosmani_cart_v1';
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || {}; } catch (e) { cart = {}; }
+
+/* навигация: фон при скролле */
+const nav = $('#nav');
+addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), {passive:true});
+
+/* мобильное меню */
+const burger = $('#burger'), mMenu = $('#mobileMenu');
+burger.addEventListener('click', () => {
+  const open = burger.classList.toggle('open');
+  mMenu.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mMenu.querySelectorAll('a,button').forEach(el => el.addEventListener('click', () => {
+  burger.classList.remove('open'); mMenu.classList.remove('open'); document.body.style.overflow = '';
+}));
+
+/* hero: побуквенное появление */
+(() => {
+  const h = $('#heroTitle'), t = h.textContent; h.textContent = '';
+  [...t].forEach((ch, i) => {
+    const s = document.createElement('span');
+    s.className = 'w'; s.textContent = ch;
+    s.style.animationDelay = (0.25 + i * 0.055) + 's';
+    h.appendChild(s);
+  });
+})();
+
+/* ticker: дублируем для бесшовности */
+$('#tickerTrack').innerHTML += $('#tickerTrack').innerHTML;
+
+/* появление блоков при скролле */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- МЕНЮ: рендер, поиск, фильтр ---------- */
+const cats = ['Все', ...new Set(MENU.map(m => m.c))];
+const catsBox = $('#menuCats'), listBox = $('#menuList'),
+      searchInp = $('#menuSearch'), emptyBox = $('#menuEmpty'), countBox = $('#menuCount');
+let activeCat = 'Все', query = '';
+
+cats.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'cat' + (c === 'Все' ? ' on' : '');
+  b.textContent = c;
+  b.addEventListener('click', () => {
+    activeCat = c;
+    catsBox.querySelectorAll('.cat').forEach(x => x.classList.toggle('on', x === b));
+    renderMenu();
+  });
+  catsBox.appendChild(b);
+});
+searchInp.addEventListener('input', () => { query = searchInp.value.trim().toLowerCase(); renderMenu(); });
+
+const esc = s => s.replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+const hi = s => {
+  const e = esc(s);
+  if (!query) return e;
+  const i = e.toLowerCase().indexOf(query);
+  return i < 0 ? e : e.slice(0, i) + '<mark>' + e.slice(i, i + query.length) + '</mark>' + e.slice(i + query.length);
+};
+
+function renderMenu(){
+  const items = MENU
+    .map((m, i) => ({...m, _i: i}))
+    .filter(m =>
+      (activeCat === 'Все' || m.c === activeCat) &&
+      (!query || (m.n + ' ' + (m.d || '')).toLowerCase().includes(query)));
+  countBox.textContent = 'Позиций: ' + items.length;
+  emptyBox.style.display = items.length ? 'none' : 'block';
+  let html = '', lastCat = null;
+  for (const m of items){
+    if (m.c !== lastCat){
+      lastCat = m.c;
+      html += `<h3 class="dish-cat">${esc(m.c)}${m.c==='Хинкали'?'<small>цена за 1 шт</small>':''}</h3>`;
+    }
+    const price = typeof m.p === 'number' ? m.p + '<i> ₽</i>' : esc(String(m.p)) + '<i> ₽</i>';
+    html += `<div class="dish">
+      <div class="dish-name">${hi(m.n)}${m.w ? `<span class="w">${esc(m.w)} г</span>` : ''}</div>
+      <div class="dish-price">${price}</div>
+      ${m.d ? `<p class="dish-desc">${hi(m.d)}</p>` : ''}
+      ${typeof m.p === 'number' ? `<div class="dish-add">${cartControlHtml(m._i)}</div>` : ''}
+    </div>`;
+  }
+  listBox.innerHTML = html;
+}
+listBox.addEventListener('click', e => {
+  const addI = e.target.closest('[data-add]')?.dataset.add;
+  const incI = e.target.closest('[data-inc]')?.dataset.inc;
+  const decI = e.target.closest('[data-dec]')?.dataset.dec;
+  if (addI != null) addToCart(+addI);
+  if (incI != null) changeQty(+incI, 1);
+  if (decI != null) changeQty(+decI, -1);
+});
+renderMenu();
+
+/* ---------- ВЕЧЕРА ---------- */
+const evList = $('#eventList'), evEmpty = $('#eventEmpty');
+if (EVENTS.length){
+  evEmpty.style.display = 'none';
+  evList.innerHTML = EVENTS.map(e => `
+    <div class="event reveal in">
+      <div class="event-date"><b>${esc(e.day)}</b><span>${esc(e.month)}</span></div>
+      <div><h3>${esc(e.title)}</h3><p>${esc(e.text)}</p></div>
+      <button class="btn btn-solid" data-book>Забронировать</button>
+    </div>`).join('');
+  evList.querySelectorAll('[data-book]').forEach(b => b.addEventListener('click', openBooking));
+}
+
+/* ---------- БРОНИРОВАНИЕ ---------- */
+function openBooking(){
+  document.body.classList.add('booking-open');
+  document.body.style.overflow = 'hidden';
+  const d = $('#bDate');
+  if (!d.value) d.value = new Date().toISOString().slice(0, 10);
+  d.min = new Date().toISOString().slice(0, 10);
+}
+function closeBooking(){
+  document.body.classList.remove('booking-open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('[data-book]').forEach(b => b.addEventListener('click', openBooking));
+document.querySelectorAll('[data-book-close]').forEach(b => b.addEventListener('click', closeBooking));
+addEventListener('keydown', e => { if (e.key === 'Escape') closeBooking(); });
+
+$('#bookForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const txt = `Здравствуйте! Бронирование стола в «Пиросмани»:%0A` +
+    `Имя: ${encodeURIComponent($('#bName').value)}%0A` +
+    `Гостей: ${encodeURIComponent($('#bGuests').value)}%0A` +
+    `Дата: ${$('#bDate').value}%0A` +
+    `Время: ${$('#bTime').value}%0A` +
+    `Телефон: ${encodeURIComponent($('#bPhone').value)}`;
+  window.open('https://wa.me/79634113232?text=' + txt, '_blank');
+  $('#bookForm').style.display = 'none';
+  $('#bookDone').style.display = 'block';
+  setTimeout(() => {
+    closeBooking();
+    setTimeout(() => { $('#bookForm').style.display = ''; $('#bookDone').style.display = 'none'; }, 600);
+  }, 4000);
+});
+
+/* ---------- КОРЗИНА ЗАКАЗА ---------- */
+function saveCart(){ try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {} }
+function cartCount(){ return Object.values(cart).reduce((s, q) => s + q, 0); }
+function cartTotal(){ return Object.entries(cart).reduce((s, [i, q]) => s + MENU[i].p * q, 0); }
+function fmt(n){ return n.toLocaleString('ru-RU') + ' ₽'; }
+
+const cartBtn = $('#cartBtn'), cartBadge = $('#cartBadge'),
+      cartBtnMobile = $('#cartBtnMobile'), cartBadgeMobile = $('#cartBadgeMobile'),
+      cartBtnSticky = $('#cartBtnSticky'), cartBadgeSticky = $('#cartBadgeSticky'),
+      cartVeil = $('#cartVeil'), cartClose = $('#cartClose'),
+      cartItemsBox = $('#cartItems'), cartEmptyMsg = $('#cartEmptyMsg'),
+      cartFooter = $('#cartFooter'), cartTotalVal = $('#cartTotalVal'),
+      orderForm = $('#orderForm'), toastEl = $('#toast');
+
+function cartControlHtml(idx){
+  const qty = cart[idx] || 0;
+  if (!qty) return `<button class="add-btn" data-add="${idx}">В корзину</button>`;
+  return `<div class="qty-stepper"><button data-dec="${idx}" aria-label="Уменьшить">&minus;</button><span>${qty}</span><button data-inc="${idx}" aria-label="Увеличить">&plus;</button></div>`;
+}
+
+function updateCartBadges(){
+  const n = cartCount();
+  [cartBadgeMobile, cartBadgeSticky].forEach(el => { if (el) el.textContent = n; });
+  if (cartBadge){ cartBadge.textContent = n; cartBadge.hidden = n === 0; }
+}
+
+function showToast(msg){
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  clearTimeout(toastEl._t);
+  toastEl._t = setTimeout(() => toastEl.classList.remove('show'), 2200);
+}
+
+function addToCart(idx){
+  cart[idx] = (cart[idx] || 0) + 1;
+  saveCart(); renderMenu(); renderCart(); updateCartBadges();
+  showToast(`«${MENU[idx].n}» добавлено в корзину`);
+}
+function changeQty(idx, delta){
+  const next = (cart[idx] || 0) + delta;
+  if (next <= 0) delete cart[idx]; else cart[idx] = next;
+  saveCart(); renderMenu(); renderCart(); updateCartBadges();
+}
+function removeFromCart(idx){
+  delete cart[idx];
+  saveCart(); renderMenu(); renderCart(); updateCartBadges();
+}
+
+function renderCart(){
+  const ids = Object.keys(cart);
+  if (!ids.length){
+    cartItemsBox.innerHTML = '';
+    cartItemsBox.appendChild(cartEmptyMsg);
+    cartFooter.hidden = true;
+    return;
+  }
+  cartFooter.hidden = false;
+  cartItemsBox.innerHTML = ids.map(idx => {
+    const m = MENU[idx], q = cart[idx];
+    return `<div class="cart-line">
+      <div>
+        <div class="cart-line-name">${esc(m.n)}</div>
+        <div class="cart-line-meta">${fmt(m.p)}${m.w ? ' · ' + esc(m.w) + ' г' : ''}</div>
+        <button class="cart-line-remove" data-remove="${idx}">убрать</button>
+      </div>
+      <div class="cart-line-right">
+        <div class="qty-stepper"><button data-dec="${idx}" aria-label="Уменьшить">&minus;</button><span>${q}</span><button data-inc="${idx}" aria-label="Увеличить">&plus;</button></div>
+        <div class="cart-line-price">${fmt(m.p * q)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  cartTotalVal.textContent = fmt(cartTotal());
+}
+cartItemsBox.addEventListener('click', e => {
+  const incI = e.target.closest('[data-inc]')?.dataset.inc;
+  const decI = e.target.closest('[data-dec]')?.dataset.dec;
+  const remI = e.target.closest('[data-remove]')?.dataset.remove;
+  if (incI != null) changeQty(+incI, 1);
+  if (decI != null) changeQty(+decI, -1);
+  if (remI != null) removeFromCart(+remI);
+});
+
+function openCart(){
+  document.body.classList.add('cart-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart(){
+  document.body.classList.remove('cart-open');
+  document.body.style.overflow = '';
+}
+[cartBtn, cartBtnMobile, cartBtnSticky].forEach(b => b && b.addEventListener('click', openCart));
+cartClose.addEventListener('click', closeCart);
+cartVeil.addEventListener('click', closeCart);
+addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+orderForm.addEventListener('submit', e => {
+  e.preventDefault();
+  if (!Object.keys(cart).length) return;
+  const lines = Object.entries(cart).map(([idx, q], i) => {
+    const m = MENU[idx];
+    return `${i + 1}. ${m.n} x${q} — ${fmt(m.p * q)}`;
+  });
+  const name = $('#oName').value.trim(), phone = $('#oPhone').value.trim(),
+        address = $('#oAddress').value.trim(), comment = $('#oComment').value.trim();
+  const parts = ['Новый заказ — Пиросмани', '', ...lines, '', `Итого: ${fmt(cartTotal())}`, '',
+    `Имя: ${name}`, `Телефон: ${phone}`, `Адрес доставки: ${address}`];
+  if (comment) parts.push(`Комментарий: ${comment}`);
+  window.open('https://wa.me/79634113232?text=' + encodeURIComponent(parts.join('\n')), '_blank');
+});
+
+renderCart();
+updateCartBadges();
+</script>
 </body>
 </html>
