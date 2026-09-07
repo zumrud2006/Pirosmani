@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pirosmani — грузинская кухня</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">✦</span>
+      <span class="logo-text">PIROSMANI</span>
+    </a>
+    <p class="tagline">Грузинская кухня</p>
+    <button class="cart-toggle" id="cartToggle" aria-label="Открыть корзину">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="9" cy="21" r="1.4"></circle>
+        <circle cx="18" cy="21" r="1.4"></circle>
+        <path d="M2.5 3h2.4l2.2 12.2a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 7H6.2"></path>
+      </svg>
+      <span class="cart-count" id="cartCount" hidden>0</span>
+    </button>
+  </div>
+
+  <nav class="category-nav" id="categoryNav" aria-label="Категории меню"></nav>
+</header>
+
+<main id="top">
+  <div id="menuRoot" class="menu-root"></div>
+</main>
+
+<footer class="site-footer">
+  <p>Pirosmani · Грузинская кухня · Доставка через WhatsApp</p>
+</footer>
+
+<!-- Cart drawer -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Корзина">
+  <div class="cart-drawer-header">
+    <h2>Ваш заказ</h2>
+    <button class="cart-close" id="cartClose" aria-label="Закрыть корзину">&times;</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty" id="cartEmpty">Корзина пуста. Выберите блюда из меню.</p>
+  </div>
+
+  <div class="cart-summary" id="cartSummary" hidden>
+    <div class="cart-total-row">
+      <span>Итого</span>
+      <span id="cartTotal">0 ₽</span>
+    </div>
+
+    <form id="checkoutForm" class="checkout-form">
+      <label>
+        Ваше имя
+        <input type="text" name="name" placeholder="Как к вам обращаться" required>
+      </label>
+      <label>
+        Телефон
+        <input type="tel" name="phone" placeholder="+7 ___ ___-__-__" required>
+      </label>
+      <label>
+        Адрес доставки
+        <input type="text" name="address" placeholder="Улица, дом, квартира" required>
+      </label>
+      <label>
+        Комментарий к заказу
+        <textarea name="comment" rows="2" placeholder="Необязательно"></textarea>
+      </label>
+      <button type="submit" class="whatsapp-btn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/>
+        </svg>
+        Оформить заказ в WhatsApp
+      </button>
+    </form>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
