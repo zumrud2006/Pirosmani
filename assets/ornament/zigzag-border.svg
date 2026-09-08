@@ -1,0 +1,19 @@
+<!--
+  Border motif recreated from the restaurant's printed menu: the thin
+  two-tone zigzag/diamond chain that runs along the page margins in the
+  PDF menu (terracotta + petrol chevrons with small amber beads at the
+  joints). Built as a tileable <pattern> so it can be used as a plain
+  CSS background-image and repeated at any width — not a redraw of the
+  logo itself, just the same recurring textile-style border motif.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 32 16">
+  <defs>
+    <pattern id="zz" width="32" height="16" patternUnits="userSpaceOnUse">
+      <polyline points="0,1 8,8 16,1 24,8 32,1" fill="none" stroke="#b23b2e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline points="0,15 8,8 16,15 24,8 32,15" fill="none" stroke="#1e4a5e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="8" cy="8" r="1.4" fill="#ce6a35"/>
+      <circle cx="24" cy="8" r="1.4" fill="#ce6a35"/>
+    </pattern>
+  </defs>
+  <rect width="32" height="16" fill="url(#zz)"/>
+</svg>

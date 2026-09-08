@@ -122,15 +122,20 @@ textarea:focus-visible {
    background fill. */
 
 .ornament-divider {
-  --s: 14px;
-  height: var(--s);
-  background-image:
-    repeating-linear-gradient(135deg, var(--petrol) 0 2px, transparent 2px 10px),
-    repeating-linear-gradient(45deg, var(--petrol) 0 2px, transparent 2px 10px);
-  background-position: 0 0, 0 0;
-  background-size: var(--s) var(--s);
-  opacity: 0.5;
-  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  height: 16px;
+  background-image: url("assets/ornament/zigzag-border.svg");
+  background-repeat: repeat-x;
+  background-size: 32px 16px;
+  opacity: 0.85;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.ornament-strip {
+  height: 8px;
+  background-image: url("assets/ornament/zigzag-border.svg");
+  background-repeat: repeat-x;
+  background-size: 24px 8px;
+  background-position: center;
 }
 
 .ornament-corner {
@@ -226,6 +231,14 @@ textarea:focus-visible {
   background: var(--petrol-deep);
   color: var(--on-dark);
   box-shadow: var(--shadow-sm);
+}
+.site-header::after {
+  content: "";
+  display: block;
+  height: 6px;
+  background-image: url("assets/ornament/zigzag-border.svg");
+  background-repeat: repeat-x;
+  background-size: 24px 6px;
 }
 
 .header-inner {
@@ -324,6 +337,16 @@ textarea:focus-visible {
   margin: 0 auto 24px;
   scrollbar-width: none;
   background: var(--petrol-deeper);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+.category-nav::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 6px;
+  background-image: url("assets/ornament/zigzag-border.svg");
+  background-repeat: repeat-x;
+  background-size: 20px 6px;
   border-radius: 0 0 var(--radius-md) var(--radius-md);
 }
 .category-nav::-webkit-scrollbar { display: none; }
@@ -913,8 +936,16 @@ textarea:focus-visible {
   z-index: 45;
   display: flex;
   background: var(--petrol-deeper);
-  border-top: 1px solid rgba(255,255,255,0.1);
   padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.mobile-nav::before {
+  content: "";
+  position: absolute;
+  top: -8px; left: 0; right: 0;
+  height: 8px;
+  background-image: url("assets/ornament/zigzag-border.svg");
+  background-repeat: repeat-x;
+  background-size: 24px 8px;
 }
 @media (min-width: 1024px) { .mobile-nav { display: none; } }
 
@@ -983,6 +1014,10 @@ body { padding-bottom: var(--bottom-nav-h); }
   border-radius: var(--radius-pill);
   background: var(--cream-deeper);
   margin: 10px auto 4px;
+}
+.cart-drawer .ornament-strip {
+  margin: 2px 0 6px;
+  opacity: 0.7;
 }
 /* Desktop: side panel */
 @media (min-width: 1024px) {
