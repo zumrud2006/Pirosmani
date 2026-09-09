@@ -13,7 +13,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Yeseva+One&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
 <!-- Placeholder favicon (assets/logo/favicon.svg) — swap for a real mark once the logo file arrives as an attachment -->
@@ -27,7 +27,7 @@
   "servesCuisine": "Грузинская кухня",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "ул. Пушкина, 3",
+    "streetAddress": "ул. Пушкина, 3, 2 этаж",
     "addressLocality": "Махачкала",
     "addressRegion": "Респ. Дагестан",
     "addressCountry": "RU"
@@ -58,7 +58,7 @@
   <div class="header-inner">
     <a href="#top" class="logo">
       <span class="logo-mark">✦</span>
-      <span class="logo-text">Пиросмани</span>
+      <span class="logo-text wordmark">Пиросмани</span>
     </a>
     <p class="header-status" id="headerStatus"><span class="dot"></span><span id="headerStatusText">Открыто до 23:00</span></p>
     <div class="header-actions">
@@ -85,6 +85,7 @@
       <source src="assets/video/hero.mp4" type="video/mp4">
     </video>
     <div class="hero-scrim"></div>
+    <p class="hero-wordmark-bleed" aria-hidden="true">Пиросмани</p>
     <div class="hero-content">
       <p class="hero-emblem">Ресторан грузинской кухни · Махачкала</p>
       <h1 class="hero-title">Грузия начинается с первого стола</h1>
@@ -98,16 +99,22 @@
         <span id="heroHours">Ежедневно 12:00–23:00</span>
       </div>
     </div>
+    <span class="ornament-strip hero-edge-ornament" aria-hidden="true"></span>
     <span class="scroll-indicator" aria-hidden="true"></span>
   </section>
 
+  <div class="ornament-strip ornament-strip--dark" aria-hidden="true"></div>
+
   <!-- ============ ABOUT ============ -->
   <section class="section" id="about">
+    <span class="section-watermark" aria-hidden="true"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M36 4 L60 36 L36 68 L12 36 Z"/><path d="M36 18 L50 36 L36 54 L22 36 Z"/></svg></span>
     <div class="container about-grid">
       <div class="reveal">
-        <span class="section-eyebrow">Не просто грузинская кухня</span>
-        <h2 class="section-title">В «Пиросмани» приходят не только за хинкали и хачапури</h2>
-        <p class="section-text">Здесь собираются семьями, встречаются с друзьями, проводят важные вечера и заходят на обед между делами. Настоящие рецепты, щедрые порции, живая атмосфера и грузинское гостеприимство — без лишнего пафоса.</p>
+        <p class="section-eyebrow"><span class="eyebrow-num">01</span><span class="eyebrow-dash"></span>О ресторане</p>
+        <h2 class="section-title">Не просто грузинская кухня</h2>
+        <span class="section-dot" aria-hidden="true"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3"><path d="M36 4 L60 36 L36 68 L12 36 Z"/><path d="M36 18 L50 36 L36 54 L22 36 Z"/></svg></span>
+        <p class="section-text">В «Пиросмани» приходят не только за хинкали и хачапури. Здесь собираются семьями, встречаются с друзьями, проводят важные вечера и заходят на обед между делами.</p>
+        <p class="section-text" style="margin-top:12px;">Настоящие рецепты, щедрые порции, живая атмосфера и грузинское гостеприимство без лишнего пафоса.</p>
         <div class="about-facts">
           <div class="about-fact"><strong>12:00–23:00</strong><span>ежедневно, без выходных</span></div>
           <div class="about-fact"><strong>28</strong><span>разделов в меню — от хинкали до блюд на компанию</span></div>
@@ -123,8 +130,9 @@
   <section class="section section-deep" id="occasions">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-eyebrow">Выберите свой повод</span>
-        <h2 class="section-title">Для каждого вечера — свой стол</h2>
+        <p class="section-eyebrow"><span class="eyebrow-num">02</span><span class="eyebrow-dash"></span>Поводы</p>
+        <h2 class="section-title">Для любого вечера найдётся стол</h2>
+        <span class="section-dot" aria-hidden="true"><svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3"><path d="M36 4 L60 36 L36 68 L12 36 Z"/><path d="M36 18 L50 36 L36 54 L22 36 Z"/></svg></span>
       </div>
       <div class="occasions-grid">
         <article class="occasion-card reveal">
@@ -163,7 +171,7 @@
   <section class="section" id="menu">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-eyebrow">Меню</span>
+        <p class="section-eyebrow"><span class="eyebrow-num">03</span><span class="eyebrow-dash"></span>Меню</p>
         <h2 class="section-title">Выбирайте и добавляйте в корзину</h2>
         <p class="section-text">Цены и вес — как в зале. Полное меню в PDF доступно отдельно, если хочется полистать оригинал.</p>
       </div>
@@ -179,7 +187,7 @@
   <section class="section kitchen-section" id="kitchen">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-eyebrow">На кухне</span>
+        <p class="section-eyebrow"><span class="eyebrow-num">04</span><span class="eyebrow-dash"></span>На кухне</p>
         <h2 class="section-title">Там, где кухня никогда не бывает тихой</h2>
         <p class="section-text">Лепка хинкали, огонь мангала, свежая выпечка из тандыра — здесь всё готовится на виду и по-настоящему.</p>
       </div>
@@ -189,11 +197,13 @@
     </div>
   </section>
 
+  <div class="ornament-strip ornament-strip--dark" aria-hidden="true"></div>
+
   <!-- ============ SIGNATURE DISHES ============ -->
   <section class="section" id="signature">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-eyebrow">Возвращаются именно за этим</span>
+        <p class="section-eyebrow"><span class="eyebrow-num">05</span><span class="eyebrow-dash"></span>Возвращаются именно за этим</p>
         <h2 class="section-title">Блюда, ради которых возвращаются</h2>
       </div>
       <div class="signature-block reveal">
@@ -219,7 +229,7 @@
   <section class="section section-deep" id="instagram">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-eyebrow">Пиросмани в моменте</span>
+        <p class="section-eyebrow"><span class="eyebrow-num">06</span><span class="eyebrow-dash"></span>Пиросмани в моменте</p>
         <h2 class="section-title">Жизнь ресторана прямо сейчас</h2>
       </div>
       <div class="instagram-grid reveal">
@@ -243,7 +253,7 @@
   <section class="section music-section" id="music">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-eyebrow">Вечер должен звучать</span>
+        <p class="section-eyebrow"><span class="eyebrow-num">07</span><span class="eyebrow-dash"></span>Вечер должен звучать</p>
         <h2 class="section-title">Иногда вечер делает музыка</h2>
         <p class="section-text" style="max-width:52ch;">В «Пиросмани» хороший вечер состоит не только из еды. Иногда его делает музыка. Иногда люди за соседним столом. Иногда блюдо, которое вы решили просто попробовать.</p>
       </div>
@@ -268,7 +278,7 @@
   <section class="section section-deep" id="booking">
     <div class="container">
       <div class="section-head reveal">
-        <span class="section-eyebrow">Бронирование</span>
+        <p class="section-eyebrow"><span class="eyebrow-num">08</span><span class="eyebrow-dash"></span>Бронирование</p>
         <h2 class="section-title">Забронировать стол</h2>
       </div>
       <div class="booking-card reveal">
@@ -304,10 +314,10 @@
   <section class="section" id="contacts">
     <div class="container contacts-grid">
       <div class="reveal">
-        <span class="section-eyebrow">Контакты</span>
+        <p class="section-eyebrow"><span class="eyebrow-num">09</span><span class="eyebrow-dash"></span>Контакты</p>
         <h2 class="section-title">Как нас найти</h2>
         <div class="contact-list">
-          <div class="contact-row"><div><strong>Адрес</strong><span>ул. Пушкина, 3, Махачкала, Респ. Дагестан</span></div></div>
+          <div class="contact-row"><div><strong>Адрес</strong><span>ул. Пушкина, 3, 2 этаж, Махачкала, Респ. Дагестан</span></div></div>
           <div class="contact-row"><div><strong>Телефон / WhatsApp</strong><span>+7 (963) 411-32-32</span></div></div>
           <div class="contact-row"><div><strong>Часы работы</strong><span>Ежедневно, 12:00–23:00</span></div></div>
           <div class="contact-row"><div><strong>Instagram</strong><span>@restaurant_pirosmani</span></div></div>
@@ -319,8 +329,7 @@
         </div>
       </div>
       <div class="map-frame reveal">
-        <!-- TODO: точные координаты/embed-код карты по адресу ул. Пушкина, 3, Махачкала — вставить, когда ресторан подтвердит точку на карте -->
-        Карта появится здесь, как только будет подтверждён embed по точному адресу
+        <iframe src="https://yandex.ru/map-widget/v1/?text=Махачкала%2C%20улица%20Пушкина%2C%203" title="Пиросмани на карте" loading="lazy" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -328,11 +337,23 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>© Пиросмани · Ресторан грузинской кухни · Махачкала</p>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/restaurant_pirosmani/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+  <div class="ornament-strip" aria-hidden="true"></div>
+  <div class="container footer-main">
+    <p class="wordmark footer-wordmark">Пиросмани</p>
+    <nav class="footer-nav" aria-label="Разделы сайта">
+      <a href="#about">О ресторане</a>
+      <a href="#menu">Меню</a>
+      <a href="#kitchen">Атмосфера</a>
+      <a href="#delivery">Доставка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="footer-contacts">
+      <span>Махачкала, ул. Пушкина, 3, 2 этаж</span>
+      <span>ежедневно с 12:00 до 23:00</span>
+      <span>+7 (963) 411-32-32</span>
+      <a href="https://www.instagram.com/restaurant_pirosmani/" target="_blank" rel="noopener">@restaurant_pirosmani</a>
     </div>
+    <p class="footer-copy">© Пиросмани · Ресторан грузинской кухни</p>
   </div>
 </footer>
 
@@ -361,7 +382,7 @@
 <div class="cart-backdrop" id="cartBackdrop"></div>
 <aside class="cart-drawer" id="cartDrawer" aria-label="Корзина">
   <div class="cart-drawer-handle"></div>
-  <div class="ornament-strip" aria-hidden="true"></div>
+  <div class="ornament-strip ornament-strip--dark" aria-hidden="true"></div>
   <div class="cart-drawer-header">
     <h2>Ваш заказ</h2>
     <button class="cart-close" id="cartClose" aria-label="Закрыть корзину">&times;</button>

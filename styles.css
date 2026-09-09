@@ -36,6 +36,7 @@
   /* Type */
   --font-display: "Yeseva One", Georgia, "Times New Roman", serif;
   --font-sans: "Jost", -apple-system, sans-serif;
+  --font-wordmark: "Marcellus", Georgia, "Times New Roman", serif;
 
   /* Layout */
   --container: 1200px;
@@ -74,6 +75,16 @@ body {
   color: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Unified brand wordmark — the same typographic treatment everywhere
+   "Пиросмани" appears as the brand name (header, hero, footer), so it
+   reads as one identity rather than four different styles. */
+.wordmark {
+  font-family: var(--font-wordmark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
 }
 
 h1, h2, h3, .font-display {
@@ -116,14 +127,16 @@ textarea:focus-visible {
 }
 
 /* ---------- Ornament system (§5) ----------
-   A small line-art motif derived from the logo's medallion: a diamond
-   with two nested chevrons. Reused as dividers, corner accents, the
-   cart-sheet handle and skeleton/loading pulses — never as a full
-   background fill. */
+   The confirmed Kimi-reference motif — a chain of small outlined
+   diamonds connected by dashes — reused system-wide as the single
+   dominant ornament: section dividers, header/footer/mobile-nav edges,
+   the cart-sheet handle. Never a full background fill. Two colour
+   variants: default (cream) for dark surfaces, --dark (brick/petrol)
+   for cream surfaces. */
 
 .ornament-divider {
   height: 16px;
-  background-image: url("assets/ornament/zigzag-border.svg");
+  background-image: url("assets/ornament/diamond-dash-dark.svg");
   background-repeat: repeat-x;
   background-size: 32px 16px;
   opacity: 0.85;
@@ -132,10 +145,13 @@ textarea:focus-visible {
 
 .ornament-strip {
   height: 8px;
-  background-image: url("assets/ornament/zigzag-border.svg");
+  background-image: url("assets/ornament/diamond-dash-light.svg");
   background-repeat: repeat-x;
-  background-size: 24px 8px;
+  background-size: 28px 8px;
   background-position: center;
+}
+.ornament-strip--dark {
+  background-image: url("assets/ornament/diamond-dash-dark.svg");
 }
 
 .ornament-corner {
@@ -162,12 +178,13 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 22px;
-  border-radius: var(--radius-pill);
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.92rem;
-  letter-spacing: 0.02em;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   border: 1.5px solid transparent;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
@@ -191,6 +208,9 @@ textarea:focus-visible {
 .btn-whatsapp {
   background: var(--whatsapp);
   color: #0b3d24;
+  border-radius: var(--radius-pill);
+  text-transform: none;
+  letter-spacing: 0.02em;
 }
 .btn-whatsapp:hover { filter: brightness(1.06); }
 
@@ -410,15 +430,55 @@ textarea:focus-visible {
 
 .hero-emblem { font-size: 0.8rem; letter-spacing: 0.18em; opacity: 0.85; margin-bottom: 12px; text-transform: uppercase; }
 
+/* Giant bleeding brand wordmark, decorative only (aria-hidden) — the
+   real H1 below carries the meaningful headline. Clipped by .hero's
+   overflow:hidden so it reads as part of the space, not a boxed logo. */
+.hero-wordmark-bleed {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  margin: 0;
+  width: 130%;
+  text-align: center;
+  font-family: var(--font-wordmark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: clamp(4.5rem, 22vw, 13rem);
+  line-height: 1;
+  color: var(--on-dark);
+  opacity: 0.16;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.hero-edge-ornament {
+  position: absolute;
+  top: 22px;
+  right: -40px;
+  width: 220px;
+  transform: rotate(6deg);
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
+}
+@media (max-width: 743px) {
+  .hero-wordmark-bleed { top: 10%; opacity: 0.12; }
+  .hero-edge-ornament { display: none; }
+}
+
 .hero-title {
   color: var(--on-dark);
-  font-size: 2.4rem;
-  line-height: 1.08;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.9rem;
+  line-height: 1.2;
   margin-bottom: 10px;
   text-shadow: 0 2px 16px rgba(0,0,0,0.35);
 }
-@media (min-width: 744px) { .hero-title { font-size: 3.4rem; } }
-@media (min-width: 1280px) { .hero-title { font-size: 4rem; } }
+@media (min-width: 744px) { .hero-title { font-size: 2.6rem; } }
+@media (min-width: 1280px) { .hero-title { font-size: 3rem; } }
 
 .hero-subtitle {
   font-size: 1rem;
@@ -482,25 +542,60 @@ textarea:focus-visible {
 }
 @media (min-width: 1024px) { .section { padding: 96px 0; } }
 
-.section-deep { background: var(--cream-deep); }
-
 .section-head {
   max-width: 640px;
   margin-bottom: 32px;
 }
 .section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brick);
-  margin-bottom: 8px;
-  display: block;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
 }
+.section-eyebrow .eyebrow-num { color: var(--brick); font-weight: 600; }
+.section-eyebrow .eyebrow-dash { width: 32px; height: 1px; background: currentColor; opacity: 0.5; }
+
 .section-title {
   font-size: 1.7rem;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 @media (min-width: 744px) { .section-title { font-size: 2.3rem; } }
+
+/* Small standalone diamond accent under a heading — a breathing pause,
+   not a repeated tile. Reuses the same nested-diamond glyph as the
+   corner ornaments so the whole system stays to one visual family. */
+.section-dot {
+  display: block;
+  width: 22px;
+  height: 22px;
+  color: var(--ink-faint);
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.section-dot svg { width: 100%; height: 100%; }
+
+/* Large, faint single watermark diamond in a section's negative space —
+   confirmed Kimi background-detail role: low opacity, large scale,
+   often bleeding off the edge. */
+.section-watermark {
+  position: absolute;
+  top: 8%;
+  right: -90px;
+  width: 320px;
+  height: 320px;
+  color: var(--ink-soft);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+.section-watermark svg { width: 100%; height: 100%; }
+@media (min-width: 1024px) {
+  .section-watermark { width: 420px; height: 420px; right: -120px; }
+}
 .section-text {
   color: var(--ink-soft);
   font-size: 1rem;
@@ -510,6 +605,8 @@ textarea:focus-visible {
 /* ============================================================
    About
    ============================================================ */
+
+#about { overflow: hidden; }
 
 .about-grid {
   display: grid;
@@ -914,17 +1011,53 @@ textarea:focus-visible {
 .site-footer {
   background: var(--petrol-deeper);
   color: rgba(243,236,220,0.75);
-  padding: 32px 0 calc(var(--bottom-nav-h) + 24px);
-  font-size: 0.82rem;
+  padding: 0 0 calc(var(--bottom-nav-h) + 32px);
+  font-size: 0.85rem;
+  text-align: center;
 }
-@media (min-width: 744px) { .site-footer { padding: 40px 0; } }
-.footer-inner {
+@media (min-width: 1024px) { .site-footer { padding-bottom: 48px; } }
+
+.footer-main {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center;
+  gap: 22px;
+  padding-top: 40px;
 }
-@media (min-width: 744px) { .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; } }
-.footer-social { display: flex; gap: 12px; }
+
+.footer-wordmark {
+  font-size: 1.6rem;
+  color: var(--on-dark);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  max-width: 320px;
+}
+.footer-nav a {
+  color: rgba(243,236,220,0.85);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.footer-nav a:hover { color: var(--ember); }
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: rgba(243,236,220,0.7);
+}
+.footer-contacts a { color: inherit; }
+
+.footer-copy {
+  margin-top: 8px;
+  color: rgba(243,236,220,0.5);
+  font-size: 0.75rem;
+}
 
 /* ============================================================
    Mobile bottom navigation (§31)

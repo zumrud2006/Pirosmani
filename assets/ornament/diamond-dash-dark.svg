@@ -1,0 +1,14 @@
+<!--
+  Same confirmed motif, dark/monochrome variant for cream backgrounds —
+  matches the warm brown tone seen in the reference recording (not a
+  brick/petrol split).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="16" viewBox="0 0 40 16">
+  <defs>
+    <pattern id="dd-dark" width="40" height="16" patternUnits="userSpaceOnUse">
+      <rect x="4.5" y="4.5" width="7" height="7" fill="none" stroke="#6b5a44" stroke-width="1.3" transform="rotate(45 8 8)"/>
+      <line x1="15" y1="8" x2="33" y2="8" stroke="#6b5a44" stroke-width="1.1"/>
+    </pattern>
+  </defs>
+  <rect width="40" height="16" fill="url(#dd-dark)"/>
+</svg>

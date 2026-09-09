@@ -1,0 +1,14 @@
+<!--
+  Confirmed Kimi-reference ornament: a horizontal chain of small outlined
+  diamonds connected by dashes — monochrome (single warm tone), matching
+  how it actually appears on dark backgrounds in the reference recording.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="16" viewBox="0 0 40 16">
+  <defs>
+    <pattern id="dd-light" width="40" height="16" patternUnits="userSpaceOnUse">
+      <rect x="4.5" y="4.5" width="7" height="7" fill="none" stroke="#e9dec5" stroke-width="1.3" transform="rotate(45 8 8)"/>
+      <line x1="15" y1="8" x2="33" y2="8" stroke="#e9dec5" stroke-width="1.1"/>
+    </pattern>
+  </defs>
+  <rect width="40" height="16" fill="url(#dd-light)"/>
+</svg>
