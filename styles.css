@@ -970,20 +970,66 @@ textarea:focus-visible {
   margin-top: 18px;
 }
 
-.booking-status {
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 16px 0 0;
-  padding: 14px 16px;
-  background: var(--cream);
-  border: 1px solid var(--cream-deeper);
-  border-radius: var(--radius-md);
-  color: var(--petrol-deep);
-  font-size: 0.88rem;
-  line-height: 1.4;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(20, 15, 10, 0.6);
 }
-.booking-status svg { flex-shrink: 0; color: var(--brick); }
+.modal-overlay[hidden] { display: none; }
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: var(--cream);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 36px 28px 28px;
+  text-align: center;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--ink-faint);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.modal-close:hover { background: var(--cream-deep); color: var(--ink); }
+.modal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--brick);
+  color: var(--on-dark);
+}
+.modal-card h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+.modal-card p {
+  margin: 0 0 22px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
 .booking-form label {
   display: flex;
   flex-direction: column;

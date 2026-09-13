@@ -20,7 +20,25 @@ function formatBookingDate(isoDate) {
   return d.toLocaleDateString("ru-RU", { day: "numeric", month: "long" });
 }
 
-const bookingStatus = document.getElementById("bookingStatus");
+const bookingModal = document.getElementById("bookingModal");
+const bookingModalClose = document.getElementById("bookingModalClose");
+const bookingModalOk = document.getElementById("bookingModalOk");
+
+function openBookingModal() {
+  bookingModal.hidden = false;
+}
+function closeBookingModal() {
+  bookingModal.hidden = true;
+}
+
+bookingModalClose.addEventListener("click", closeBookingModal);
+bookingModalOk.addEventListener("click", closeBookingModal);
+bookingModal.addEventListener("click", (e) => {
+  if (e.target === bookingModal) closeBookingModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !bookingModal.hidden) closeBookingModal();
+});
 
 bookingForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -33,5 +51,5 @@ bookingForm.addEventListener("submit", (e) => {
     "_blank"
   );
 
-  bookingStatus.hidden = false;
+  openBookingModal();
 });

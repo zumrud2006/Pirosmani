@@ -322,10 +322,6 @@
             Забронировать в WhatsApp
           </button>
         </form>
-        <p class="booking-status" id="bookingStatus" hidden>
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-          Заявка отправлена в WhatsApp. Администратор подтвердит бронь.
-        </p>
       </div>
     </div>
   </section>
@@ -345,12 +341,12 @@
         <div class="contact-actions">
           <a href="tel:+79634113232" class="btn btn-secondary">Позвонить</a>
           <a id="contactsWhatsapp" href="#" class="btn btn-whatsapp">Написать в WhatsApp</a>
-          <a href="https://yandex.ru/maps/?text=Махачкала%2C%20улица%20Пушкина%2C%203" target="_blank" rel="noopener" class="btn btn-secondary">Построить маршрут</a>
+          <a href="https://yandex.ru/maps/?text=Респ.%20Дагестан%2C%20Махачкала%2C%20улица%20Пушкина%2C%203" target="_blank" rel="noopener" class="btn btn-secondary">Построить маршрут</a>
         </div>
       </div>
       <div class="contacts-media reveal">
         <div class="map-frame">
-          <iframe src="https://yandex.ru/map-widget/v1/?text=Махачкала%2C%20улица%20Пушкина%2C%203" title="Пиросмани на карте" loading="lazy" allowfullscreen></iframe>
+          <iframe src="https://yandex.ru/map-widget/v1/?text=Респ.%20Дагестан%2C%20Махачкала%2C%20улица%20Пушкина%2C%203&z=17" title="Пиросмани на карте" loading="lazy" allowfullscreen></iframe>
         </div>
         <div class="entrance-photo">
           <video autoplay muted loop playsinline aria-label="Вход в ресторан «Пиросмани»">
@@ -435,6 +431,20 @@
 </aside>
 
 <div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="bookingModal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <button type="button" class="modal-close" id="bookingModalClose" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <span class="modal-icon">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+    </span>
+    <h3 id="bookingModalTitle">Заявка отправлена</h3>
+    <p>Мы передали её в WhatsApp — администратор свяжется с вами и подтвердит бронь.</p>
+    <button type="button" class="btn btn-primary btn-block" id="bookingModalOk">Хорошо</button>
+  </div>
+</div>
 
 <script src="data/restaurant.js"></script>
 <script src="data/menu.js"></script>
