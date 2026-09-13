@@ -242,10 +242,12 @@
         </a>
       </div>
       <!--
-        Instagram feed placeholder: no API/third-party embed is wired up yet.
-        Each .instagram-tile is a ready-made slot — swap its content for a
-        real photo/video (or feed the array a real embed script) without
-        touching this markup's structure. Do not fill with stock photos.
+        ЖИВОЙ ВИДЖЕТ INSTAGRAM — см. INSTAGRAM_SETUP.md
+        Когда виджет (Elfsight) подключён, его embed-код (обычно
+        <div class="elfsight-app-..."></div> + один <script> тег) вставляется
+        прямо здесь, ВМЕСТО блока .instagram-grid ниже. До тех пор здесь
+        остаются вручную вставленные реальные фото ресторана — ничего не
+        сломается и пусто не будет.
       -->
       <div class="instagram-grid reveal">
         <div class="instagram-tile" data-instagram-slot="1"><img src="assets/photos/gallery-salad-1.jpg" alt="" loading="lazy"></div>
@@ -444,12 +446,5 @@
 <script src="js/booking-ui.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/app.js"></script>
-
-<script>
-  // Заполнить URL Netlify-функции после настройки бэкенда — см. INSTAGRAM_SETUP.md
-  // Пример: "https://pirosmani-feed.netlify.app/.netlify/functions/instagram-feed"
-  window.INSTAGRAM_FEED_ENDPOINT = "";
-</script>
-<script src="js/instagram-feed.js"></script>
 </body>
 </html>
