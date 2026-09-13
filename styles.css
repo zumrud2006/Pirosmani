@@ -256,7 +256,7 @@ textarea:focus-visible {
   content: "";
   display: block;
   height: 6px;
-  background-image: url("assets/ornament/zigzag-border.svg");
+  background-image: url("assets/ornament/diamond-dash-light.svg");
   background-repeat: repeat-x;
   background-size: 24px 6px;
 }
@@ -284,7 +284,7 @@ textarea:focus-visible {
   letter-spacing: 0.02em;
   color: var(--on-dark);
 }
-.logo-mark { color: var(--ember); font-size: 1rem; }
+.logo-mark-img { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; }
 
 .header-status {
   display: none;
@@ -364,7 +364,7 @@ textarea:focus-visible {
   position: absolute;
   left: 0; right: 0; bottom: -6px;
   height: 6px;
-  background-image: url("assets/ornament/zigzag-border.svg");
+  background-image: url("assets/ornament/diamond-dash-light.svg");
   background-repeat: repeat-x;
   background-size: 20px 6px;
   border-radius: 0 0 var(--radius-md) var(--radius-md);
@@ -453,6 +453,21 @@ textarea:focus-visible {
   pointer-events: none;
 }
 
+.hero-badge {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+}
+@media (min-width: 744px) { .hero-badge { width: 108px; height: 108px; top: 9%; } }
+@media (max-width: 743px) { .hero-badge { width: 66px; height: 66px; } }
+
 .hero-edge-ornament {
   position: absolute;
   top: 22px;
@@ -470,13 +485,14 @@ textarea:focus-visible {
 
 .hero-title {
   color: var(--on-dark);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   font-size: 1.9rem;
   line-height: 1.2;
   margin-bottom: 10px;
   text-shadow: 0 2px 16px rgba(0,0,0,0.35);
 }
+.hero-title.wordmark { letter-spacing: 0.08em; }
 @media (min-width: 744px) { .hero-title { font-size: 2.6rem; } }
 @media (min-width: 1280px) { .hero-title { font-size: 3rem; } }
 
@@ -689,6 +705,19 @@ textarea:focus-visible {
   top: -10px; right: -10px;
   filter: brightness(0) invert(1);
   opacity: 0.15;
+  z-index: 1;
+}
+
+/* Photo slot — empty for now (gradient shows through), ready to hold a
+   real image once supplied. Drop an <img class="occasion-media-img">
+   inside .occasion-media and it fills the card behind the text. */
+.occasion-media { position: absolute; inset: 0; z-index: 0; }
+.occasion-media-img { width: 100%; height: 100%; object-fit: cover; }
+.occasion-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20,14,8,0) 40%, rgba(20,14,8,0.55) 100%);
 }
 
 /* ============================================================
@@ -727,14 +756,6 @@ textarea:focus-visible {
 @media (min-width: 1024px) {
   .dish-grid { grid-template-columns: repeat(3, 1fr); }
 }
-/* Editorial rhythm: first card of every third category-section spans 2 columns */
-.category-section:nth-of-type(3n+1) .dish-card:first-child {
-  grid-column: span 2;
-}
-@media (max-width: 639px) {
-  .category-section .dish-card:first-child { grid-column: span 1; }
-}
-
 .dish-card {
   background: var(--cream-deep);
   border: 1px solid var(--cream-deeper);
@@ -884,9 +905,27 @@ textarea:focus-visible {
   overflow: hidden;
   background: var(--cream-deeper);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .instagram-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
 .instagram-tile:hover img { transform: scale(1.06); }
+.instagram-tile-icon { color: var(--ink-faint); opacity: 0.5; }
+
+.instagram-handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--cream-deeper);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.instagram-handle:hover { border-color: var(--brick); color: var(--brick); }
 
 /* ============================================================
    Music
@@ -934,6 +973,21 @@ textarea:focus-visible {
   gap: 14px;
   margin-top: 18px;
 }
+
+.booking-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  background: var(--cream);
+  border: 1px solid var(--cream-deeper);
+  border-radius: var(--radius-md);
+  color: var(--petrol-deep);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.booking-status svg { flex-shrink: 0; color: var(--brick); }
 .booking-form label {
   display: flex;
   flex-direction: column;
@@ -1004,6 +1058,34 @@ textarea:focus-visible {
 }
 .map-frame iframe { width: 100%; height: 100%; border: 0; min-height: 280px; }
 
+.contacts-media {
+  display: grid;
+  gap: 16px;
+}
+.entrance-photo {
+  min-height: 200px;
+  border-radius: var(--radius-lg);
+  background: var(--cream-deeper);
+  overflow: hidden;
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  text-align: center;
+}
+.entrance-photo:not(:has(video)) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  min-height: 140px;
+}
+.entrance-photo video {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
 /* ============================================================
    Footer
    ============================================================ */
@@ -1025,9 +1107,11 @@ textarea:focus-visible {
   padding-top: 40px;
 }
 
-.footer-wordmark {
-  font-size: 1.6rem;
-  color: var(--on-dark);
+.footer-badge {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
 }
 
 .footer-nav {
@@ -1068,17 +1152,21 @@ textarea:focus-visible {
   bottom: 0; left: 0; right: 0;
   z-index: 45;
   display: flex;
+  flex-direction: column;
   background: var(--petrol-deeper);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 .mobile-nav::before {
   content: "";
-  position: absolute;
-  top: -8px; left: 0; right: 0;
+  display: block;
+  flex-shrink: 0;
   height: 8px;
-  background-image: url("assets/ornament/zigzag-border.svg");
+  background-image: url("assets/ornament/diamond-dash-light.svg");
   background-repeat: repeat-x;
   background-size: 24px 8px;
+}
+.mobile-nav-links {
+  display: flex;
 }
 @media (min-width: 1024px) { .mobile-nav { display: none; } }
 

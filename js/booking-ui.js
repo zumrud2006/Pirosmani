@@ -20,6 +20,8 @@ function formatBookingDate(isoDate) {
   return d.toLocaleDateString("ru-RU", { day: "numeric", month: "long" });
 }
 
+const bookingStatus = document.getElementById("bookingStatus");
+
 bookingForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(bookingForm);
@@ -30,4 +32,6 @@ bookingForm.addEventListener("submit", (e) => {
     whatsAppBookingUrl({ date, time, guests: formData.get("guests") }),
     "_blank"
   );
+
+  bookingStatus.hidden = false;
 });

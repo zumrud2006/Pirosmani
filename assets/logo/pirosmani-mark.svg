@@ -1,0 +1,66 @@
+<!--
+  Hand-built recreation of the restaurant's circular medallion logo, from
+  repeated visual reference (no source file was ever supplied as an
+  attachment — only pasted inline). Faithful to the real structure: cream
+  disc, four-fold symmetric blue scrollwork ring, dotted ring with amber
+  beads, brick-red "ПИРОСМАНИ" wordmark + subtitle. Swap this file for the
+  original the moment a real logo asset arrives.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="98" fill="#efe6d3"/>
+
+  <!-- Four-fold scrollwork cluster, rotated around the badge -->
+  <g fill="none" stroke-linecap="round">
+    <g id="pm-cluster">
+      <path d="M100 20 C 84 20 74 32 76 46 C 78 58 90 62 96 54 C 90 66 74 68 64 58 C 52 46 58 26 78 18 C 88 14 100 14 100 14"
+            fill="#1e4a5e"/>
+      <path d="M100 20 C 116 20 126 32 124 46 C 122 58 110 62 104 54 C 110 66 126 68 136 58 C 148 46 142 26 122 18 C 112 14 100 14 100 14"
+            fill="#3e7c97"/>
+      <circle cx="86" cy="34" r="6.5" fill="#efe6d3"/>
+      <circle cx="114" cy="34" r="6.5" fill="#efe6d3"/>
+    </g>
+    <use href="#pm-cluster" transform="rotate(90 100 100)"/>
+    <use href="#pm-cluster" transform="rotate(180 100 100)"/>
+    <use href="#pm-cluster" transform="rotate(270 100 100)"/>
+  </g>
+
+  <!-- small brick accents peeking between the clusters -->
+  <g fill="#b23b2e">
+    <path d="M100 40 c-5 6 -5 14 0 18 c5 -4 5 -12 0 -18Z"/>
+    <path d="M100 160 c-5 -6 -5 -14 0 -18 c5 4 5 12 0 18Z"/>
+    <path d="M40 100 c6 -5 14 -5 18 0 c-4 5 -12 5 -18 0Z"/>
+    <path d="M160 100 c-6 -5 -14 -5 -18 0 c4 5 12 5 18 0Z"/>
+  </g>
+
+  <!-- dotted ring with amber beads at the cardinal points -->
+  <g fill="#8a7a63" opacity="0.8">
+    <circle cx="100" cy="66" r="2.1"/>
+    <circle cx="112" cy="68" r="2.1"/>
+    <circle cx="122" cy="74" r="2.1"/>
+    <circle cx="130" cy="82" r="2.1"/>
+    <circle cx="134" cy="92" r="2.1"/>
+    <circle cx="134" cy="108" r="2.1"/>
+    <circle cx="130" cy="118" r="2.1"/>
+    <circle cx="122" cy="126" r="2.1"/>
+    <circle cx="112" cy="132" r="2.1"/>
+    <circle cx="100" cy="134" r="2.1"/>
+    <circle cx="88" cy="132" r="2.1"/>
+    <circle cx="78" cy="126" r="2.1"/>
+    <circle cx="70" cy="118" r="2.1"/>
+    <circle cx="66" cy="108" r="2.1"/>
+    <circle cx="66" cy="92" r="2.1"/>
+    <circle cx="70" cy="82" r="2.1"/>
+    <circle cx="78" cy="74" r="2.1"/>
+    <circle cx="88" cy="68" r="2.1"/>
+  </g>
+  <g fill="#ce6a35">
+    <circle cx="100" cy="72" r="2.6"/>
+    <circle cx="100" cy="128" r="2.6"/>
+    <circle cx="72" cy="100" r="2.6"/>
+    <circle cx="128" cy="100" r="2.6"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="100" y="105" text-anchor="middle" font-family="Marcellus, Georgia, serif" font-size="21" fill="#b23b2e" textLength="128" lengthAdjust="spacingAndGlyphs">ПИРОСМАНИ</text>
+  <text x="100" y="118" text-anchor="middle" font-family="Jost, Arial, sans-serif" font-size="6" letter-spacing="1.5" fill="#b23b2e">РЕСТОРАН ГРУЗИНСКОЙ КУХНИ</text>
+</svg>

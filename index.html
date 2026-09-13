@@ -16,8 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Yeseva+One&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
-<!-- Placeholder favicon (assets/logo/favicon.svg) — swap for a real mark once the logo file arrives as an attachment -->
-<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+<!-- Hand-recreated from the restaurant's real logo image (no source file was ever supplied) — swap for the original asset if it arrives -->
+<link rel="icon" type="image/svg+xml" href="assets/logo/pirosmani-mark.svg">
 
 <script type="application/ld+json">
 {
@@ -57,7 +57,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="#top" class="logo">
-      <span class="logo-mark">✦</span>
+      <img src="assets/logo/pirosmani-mark.svg" alt="Пиросмани" class="logo-mark-img" width="40" height="40">
       <span class="logo-text wordmark">Пиросмани</span>
     </a>
     <p class="header-status" id="headerStatus"><span class="dot"></span><span id="headerStatusText">Открыто до 23:00</span></p>
@@ -86,9 +86,10 @@
     </video>
     <div class="hero-scrim"></div>
     <p class="hero-wordmark-bleed" aria-hidden="true">Пиросмани</p>
+    <img src="assets/logo/pirosmani-mark.svg" alt="" aria-hidden="true" class="hero-badge">
     <div class="hero-content">
       <p class="hero-emblem">Ресторан грузинской кухни · Махачкала</p>
-      <h1 class="hero-title">Грузия начинается с первого стола</h1>
+      <h1 class="hero-title wordmark">Тут как дома</h1>
       <p class="hero-subtitle">Аромат свежей выпечки, шум кухни, музыка и блюда, к которым хочется возвращаться.</p>
       <div class="hero-cta">
         <a href="#booking" class="btn btn-primary">Забронировать стол</a>
@@ -137,6 +138,8 @@
       <div class="occasions-grid">
         <article class="occasion-card reveal">
           <span class="ornament-corner"><svg><use href="#ornament-motif"/></svg></span>
+          <!-- TODO: photo slot, ready for a real image — insert <img class="occasion-media-img" src="..." alt="..."> here -->
+          <div class="occasion-media"></div>
           <div class="occasion-card-inner">
             <h3>Семейный обед</h3>
             <p>Когда хочется собрать всех за одним большим столом.</p>
@@ -144,6 +147,8 @@
         </article>
         <article class="occasion-card reveal">
           <span class="ornament-corner"><svg><use href="#ornament-motif"/></svg></span>
+          <!-- TODO: photo slot, ready for a real image — insert <img class="occasion-media-img" src="..." alt="..."> here -->
+          <div class="occasion-media"></div>
           <div class="occasion-card-inner">
             <h3>Вечер вдвоём</h3>
             <p>Тёплая атмосфера, хорошая кухня и вечер без спешки.</p>
@@ -151,6 +156,8 @@
         </article>
         <article class="occasion-card reveal">
           <span class="ornament-corner"><svg><use href="#ornament-motif"/></svg></span>
+          <!-- TODO: photo slot, ready for a real image — insert <img class="occasion-media-img" src="..." alt="..."> here -->
+          <div class="occasion-media"></div>
           <div class="occasion-card-inner">
             <h3>Деловой обед</h3>
             <p>Вкусный перерыв между важными разговорами.</p>
@@ -158,6 +165,8 @@
         </article>
         <article class="occasion-card reveal">
           <span class="ornament-corner"><svg><use href="#ornament-motif"/></svg></span>
+          <!-- TODO: photo slot, ready for a real image — insert <img class="occasion-media-img" src="..." alt="..."> here -->
+          <div class="occasion-media"></div>
           <div class="occasion-card-inner">
             <h3>Праздник</h3>
             <p>День рождения, банкет или вечер, который хочется запомнить.</p>
@@ -231,17 +240,26 @@
       <div class="section-head reveal">
         <p class="section-eyebrow"><span class="eyebrow-num">06</span><span class="eyebrow-dash"></span>Пиросмани в моменте</p>
         <h2 class="section-title">Жизнь ресторана прямо сейчас</h2>
+        <a href="https://www.instagram.com/restaurant_pirosmani/" target="_blank" rel="noopener" class="instagram-handle">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          @restaurant_pirosmani
+        </a>
       </div>
+      <!--
+        Instagram feed placeholder: no API/third-party embed is wired up yet.
+        Each .instagram-tile is a ready-made slot — swap its content for a
+        real photo/video (or feed the array a real embed script) without
+        touching this markup's structure. Do not fill with stock photos.
+      -->
       <div class="instagram-grid reveal">
-        <!-- TODO: реальные фото/видео из Instagram — сейчас нет отдельных файлов кроме одного видео и старых скринов профиля -->
-        <div class="instagram-tile"></div>
-        <div class="instagram-tile"></div>
-        <div class="instagram-tile"></div>
-        <div class="instagram-tile"></div>
-        <div class="instagram-tile"></div>
-        <div class="instagram-tile"></div>
-        <div class="instagram-tile"></div>
-        <div class="instagram-tile"></div>
+        <div class="instagram-tile" data-instagram-slot="1"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
+        <div class="instagram-tile" data-instagram-slot="2"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
+        <div class="instagram-tile" data-instagram-slot="3"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
+        <div class="instagram-tile" data-instagram-slot="4"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
+        <div class="instagram-tile" data-instagram-slot="5"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
+        <div class="instagram-tile" data-instagram-slot="6"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
+        <div class="instagram-tile" data-instagram-slot="7"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
+        <div class="instagram-tile" data-instagram-slot="8"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
       </div>
       <div style="text-align:center; margin-top:24px;">
         <a href="https://www.instagram.com/restaurant_pirosmani/" target="_blank" rel="noopener" class="btn btn-secondary">Смотреть в Instagram</a>
@@ -306,6 +324,10 @@
             Забронировать в WhatsApp
           </button>
         </form>
+        <p class="booking-status" id="bookingStatus" hidden>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Заявка отправлена в WhatsApp. Администратор подтвердит бронь.
+        </p>
       </div>
     </div>
   </section>
@@ -328,8 +350,15 @@
           <a href="https://yandex.ru/maps/?text=Махачкала%2C%20улица%20Пушкина%2C%203" target="_blank" rel="noopener" class="btn btn-secondary">Построить маршрут</a>
         </div>
       </div>
-      <div class="map-frame reveal">
-        <iframe src="https://yandex.ru/map-widget/v1/?text=Махачкала%2C%20улица%20Пушкина%2C%203" title="Пиросмани на карте" loading="lazy" allowfullscreen></iframe>
+      <div class="contacts-media reveal">
+        <div class="map-frame">
+          <iframe src="https://yandex.ru/map-widget/v1/?text=Махачкала%2C%20улица%20Пушкина%2C%203" title="Пиросмани на карте" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="entrance-photo">
+          <video autoplay muted loop playsinline aria-label="Вход в ресторан «Пиросмани»">
+            <source src="assets/video/entrance.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -339,7 +368,7 @@
 <footer class="site-footer">
   <div class="ornament-strip" aria-hidden="true"></div>
   <div class="container footer-main">
-    <p class="wordmark footer-wordmark">Пиросмани</p>
+    <img src="assets/logo/pirosmani-mark.svg" alt="Пиросмани" class="footer-badge" width="96" height="96">
     <nav class="footer-nav" aria-label="Разделы сайта">
       <a href="#about">О ресторане</a>
       <a href="#menu">Меню</a>
@@ -359,6 +388,7 @@
 
 <!-- Mobile bottom navigation -->
 <nav class="mobile-nav" aria-label="Быстрая навигация">
+  <div class="mobile-nav-links">
   <a href="#menu">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
     Меню
@@ -376,6 +406,7 @@
     Корзина
     <span class="mobile-nav-badge" id="mobileNavCartBadge" hidden>0</span>
   </a>
+  </div>
 </nav>
 
 <!-- Cart drawer -->
