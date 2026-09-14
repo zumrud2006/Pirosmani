@@ -230,46 +230,11 @@
     </div>
   </section>
 
-  <!-- ============ INSTAGRAM ============ -->
-  <section class="section section-deep" id="instagram">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="section-eyebrow"><span class="eyebrow-num">06</span><span class="eyebrow-dash"></span>Пиросмани в моменте</p>
-        <h2 class="section-title">Жизнь ресторана прямо сейчас</h2>
-        <a href="https://www.instagram.com/restaurant_pirosmani/" target="_blank" rel="noopener" class="instagram-handle">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
-          @restaurant_pirosmani
-        </a>
-      </div>
-      <!--
-        ЖИВОЙ ВИДЖЕТ INSTAGRAM — см. INSTAGRAM_SETUP.md
-        Когда виджет (Elfsight) подключён, его embed-код (обычно
-        <div class="elfsight-app-..."></div> + один <script> тег) вставляется
-        прямо здесь, ВМЕСТО блока .instagram-grid ниже. До тех пор здесь
-        остаются вручную вставленные реальные фото ресторана — ничего не
-        сломается и пусто не будет.
-      -->
-      <div class="instagram-grid reveal">
-        <div class="instagram-tile" data-instagram-slot="1"><img src="assets/photos/gallery-salad-1.jpg" alt="" loading="lazy"></div>
-        <div class="instagram-tile" data-instagram-slot="2"><img src="assets/photos/gallery-salad-2.jpg" alt="" loading="lazy"></div>
-        <div class="instagram-tile" data-instagram-slot="3"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
-        <div class="instagram-tile" data-instagram-slot="4"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
-        <div class="instagram-tile" data-instagram-slot="5"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
-        <div class="instagram-tile" data-instagram-slot="6"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
-        <div class="instagram-tile" data-instagram-slot="7"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
-        <div class="instagram-tile" data-instagram-slot="8"><span class="instagram-tile-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span></div>
-      </div>
-      <div style="text-align:center; margin-top:24px;">
-        <a href="https://www.instagram.com/restaurant_pirosmani/" target="_blank" rel="noopener" class="btn btn-secondary">Смотреть в Instagram</a>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ MUSIC ============ -->
   <section class="section music-section" id="music">
     <div class="container">
       <div class="section-head reveal">
-        <p class="section-eyebrow"><span class="eyebrow-num">07</span><span class="eyebrow-dash"></span>Вечер должен звучать</p>
+        <p class="section-eyebrow"><span class="eyebrow-num">06</span><span class="eyebrow-dash"></span>Вечер должен звучать</p>
         <h2 class="section-title">Иногда вечер делает музыка</h2>
         <p class="section-text" style="max-width:52ch;">В «Пиросмани» хороший вечер состоит не только из еды. Иногда его делает музыка. Иногда люди за соседним столом. Иногда блюдо, которое вы решили просто попробовать.</p>
       </div>
@@ -294,7 +259,7 @@
   <section class="section section-deep" id="booking">
     <div class="container">
       <div class="section-head reveal">
-        <p class="section-eyebrow"><span class="eyebrow-num">08</span><span class="eyebrow-dash"></span>Бронирование</p>
+        <p class="section-eyebrow"><span class="eyebrow-num">07</span><span class="eyebrow-dash"></span>Бронирование</p>
         <h2 class="section-title">Забронировать стол</h2>
       </div>
       <div class="booking-card reveal">
@@ -302,7 +267,7 @@
         <form class="booking-form" id="bookingForm">
           <label>
             Дата
-            <input type="date" name="date" required>
+            <input type="date" name="date" id="bookingDate" required>
           </label>
           <label>
             Время
@@ -330,7 +295,7 @@
   <section class="section" id="contacts">
     <div class="container contacts-grid">
       <div class="reveal">
-        <p class="section-eyebrow"><span class="eyebrow-num">09</span><span class="eyebrow-dash"></span>Контакты</p>
+        <p class="section-eyebrow"><span class="eyebrow-num">08</span><span class="eyebrow-dash"></span>Контакты</p>
         <h2 class="section-title">Как нас найти</h2>
         <div class="contact-list">
           <div class="contact-row"><div><strong>Адрес</strong><span>ул. Пушкина, 3, 2 этаж, Махачкала, Респ. Дагестан</span></div></div>
@@ -341,12 +306,12 @@
         <div class="contact-actions">
           <a href="tel:+79634113232" class="btn btn-secondary">Позвонить</a>
           <a id="contactsWhatsapp" href="#" class="btn btn-whatsapp">Написать в WhatsApp</a>
-          <a href="https://yandex.ru/maps/?text=Респ.%20Дагестан%2C%20Махачкала%2C%20улица%20Пушкина%2C%203" target="_blank" rel="noopener" class="btn btn-secondary">Построить маршрут</a>
+          <a href="https://yandex.ru/maps/?text=Ресторан%20Пиросмани%20Махачкала%20улица%20Пушкина%203" target="_blank" rel="noopener" class="btn btn-secondary">Построить маршрут</a>
         </div>
       </div>
       <div class="contacts-media reveal">
         <div class="map-frame">
-          <iframe src="https://yandex.ru/map-widget/v1/?text=Респ.%20Дагестан%2C%20Махачкала%2C%20улица%20Пушкина%2C%203&z=17" title="Пиросмани на карте" loading="lazy" allowfullscreen></iframe>
+          <iframe src="https://yandex.ru/map-widget/v1/?text=Ресторан%20Пиросмани%20Махачкала%20улица%20Пушкина%203&z=16" title="Пиросмани на карте" loading="lazy" allowfullscreen></iframe>
         </div>
         <div class="entrance-photo">
           <video autoplay muted loop playsinline aria-label="Вход в ресторан «Пиросмани»">
@@ -440,8 +405,8 @@
     <span class="modal-icon">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
     </span>
-    <h3 id="bookingModalTitle">Заявка отправлена</h3>
-    <p>Мы передали её в WhatsApp — администратор свяжется с вами и подтвердит бронь.</p>
+    <h3 id="bookingModalTitle">Сообщение подготовлено</h3>
+    <p>Сообщение подготовлено в WhatsApp. Отправьте его администратору. Бронь считается подтверждённой только после ответа администратора.</p>
     <button type="button" class="btn btn-primary btn-block" id="bookingModalOk">Хорошо</button>
   </div>
 </div>

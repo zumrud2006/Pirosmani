@@ -5,7 +5,6 @@ renderCategoryNav();
 renderMenu();
 renderCartUI();
 updateCartBadges();
-setActiveNavLink();
 updateOpenStatus();
 initRevealAnimations();
 initContactsLink();

@@ -3,11 +3,31 @@
 const menuRoot = document.getElementById("menuRoot");
 const categoryNav = document.getElementById("categoryNav");
 
+let activeCategoryId = MENU[0].id;
+
 function renderCategoryNav() {
   categoryNav.innerHTML = MENU.map(
-    (cat) => `<a href="#cat-${cat.id}" data-cat="${cat.id}">${cat.title}</a>`
+    (cat) =>
+      `<a href="#cat-${cat.id}" data-cat="${cat.id}" class="${cat.id === activeCategoryId ? "active" : ""}">${cat.title}</a>`
   ).join("");
 }
+
+function showCategory(catId) {
+  activeCategoryId = catId;
+  [...categoryNav.querySelectorAll("a")].forEach((link) => {
+    link.classList.toggle("active", link.dataset.cat === catId);
+  });
+  [...menuRoot.querySelectorAll(".category-section")].forEach((section) => {
+    section.hidden = section.id !== `cat-${catId}`;
+  });
+}
+
+categoryNav.addEventListener("click", (e) => {
+  const link = e.target.closest("[data-cat]");
+  if (!link) return;
+  e.preventDefault();
+  showCategory(link.dataset.cat);
+});
 
 function dishControlHtml(item) {
   const qty = Cart.items[item.id] || 0;
@@ -26,7 +46,7 @@ function dishControlHtml(item) {
 function renderMenu() {
   menuRoot.innerHTML = MENU.map(
     (cat) => `
-    <section class="category-section" id="cat-${cat.id}">
+    <section class="category-section" id="cat-${cat.id}" ${cat.id === activeCategoryId ? "" : "hidden"}>
       <div class="category-header">
         <h2>${cat.title}</h2>
         <span class="ornament-divider"></span>

@@ -3,6 +3,11 @@
 const bookingForm = document.getElementById("bookingForm");
 const guestsValueEl = document.getElementById("guestsValue");
 const guestsInput = document.getElementById("guestsInput");
+const bookingDateInput = document.getElementById("bookingDate");
+
+function pad2(n) { return String(n).padStart(2, "0"); }
+const today = new Date();
+bookingDateInput.min = `${today.getFullYear()}-${pad2(today.getMonth() + 1)}-${pad2(today.getDate())}`;
 
 let guests = 2;
 function setGuests(next) {

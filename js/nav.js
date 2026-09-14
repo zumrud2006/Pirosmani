@@ -11,24 +11,6 @@ function updateOpenStatus() {
     : `Откроется в ${RESTAURANT.hours.open}`;
 }
 
-// ---------- Active category highlight while scrolling the menu ----------
-
-function setActiveNavLink() {
-  const links = [...categoryNav.querySelectorAll("a")];
-  const sections = MENU.map((cat) => document.getElementById(`cat-${cat.id}`));
-  let currentId = sections[0]?.id;
-  for (const section of sections) {
-    if (section && section.getBoundingClientRect().top <= 140) {
-      currentId = section.id;
-    }
-  }
-  links.forEach((link) => {
-    link.classList.toggle("active", `cat-${link.dataset.cat}` === currentId);
-  });
-}
-
-window.addEventListener("scroll", () => window.requestAnimationFrame(setActiveNavLink));
-
 // ---------- Reveal-on-scroll ----------
 
 const revealObserver = new IntersectionObserver(
